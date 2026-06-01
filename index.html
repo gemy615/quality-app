@@ -2,592 +2,252 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>ريادة الأعمال</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تلاوات مختارة للشيخ ياسر الدوسري</title>
+
 <style>
-:root{
-  --bg:#0A0F0D;--card:#111916;--border:#1e2e24;
-  --orange:#E8820C;--od:rgba(232,130,12,0.13);
-  --green:#2D9E5F;--gd:rgba(45,158,95,0.13);
-  --red:#E84444;--rd:rgba(232,68,68,0.13);
-  --blue:#3a8fd4;--bd:rgba(58,143,212,0.13);
-  --text:#e8f0eb;--muted:#7a9485;--white:#fff;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html,body{min-height:100%;background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;overflow-x:hidden;}
-button{cursor:pointer;touch-action:manipulation;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;-webkit-appearance:none;appearance:none;}
 
-#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.pt{position:absolute;border-radius:50%;opacity:0;animation:fu linear infinite;}
-@keyframes fu{0%{transform:translateY(100vh) scale(0);opacity:0;}10%{opacity:.25;}90%{opacity:.06;}100%{transform:translateY(-10vh) scale(1.5);opacity:0;}}
+body{
+    font-family:Tahoma, Arial, sans-serif;
+    background:#0f1115;
+    color:white;
+}
 
-.scr{position:relative;z-index:1;display:none;min-height:100vh;padding:28px 16px 56px;animation:fi .4s ease;}
-.scr.on{display:flex;flex-direction:column;align-items:center;}
-@keyframes fi{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-@keyframes si{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
-@keyframes sb{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
-@keyframes pk{0%{transform:scale(1);}50%{transform:scale(1.04);}100%{transform:scale(1);}}
-@keyframes sh{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
-@keyframes sp{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
-@keyframes cf{to{transform:translateY(110vh) rotate(720deg);opacity:0;}}
-@keyframes pr{0%,100%{box-shadow:0 0 28px rgba(232,130,12,.28);}50%{box-shadow:0 0 55px rgba(232,130,12,.55);}}
+header{
+    background:linear-gradient(135deg,#111827,#1f2937);
+    padding:40px 20px;
+    text-align:center;
+    border-bottom:2px solid #d4af37;
+}
 
-/* WELCOME */
-#sw{justify-content:center;text-align:center;gap:24px;}
-.logo{width:116px;height:116px;border-radius:50%;border:3px solid var(--orange);display:flex;align-items:center;justify-content:center;font-size:50px;background:var(--od);animation:pr 2.2s ease-in-out infinite;}
-.wtitle{font-size:23px;font-weight:900;line-height:1.35;background:linear-gradient(135deg,var(--orange),#f0a94a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.wsub{font-size:14px;color:var(--muted);line-height:1.8;}
-.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-.chip{background:var(--card);border:1px solid var(--border);border-radius:50px;padding:9px 18px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:7px;}
-.chip b{color:var(--orange);font-size:16px;}
-.sbx{width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px;}
-.sbtn{width:100%;padding:17px 20px;border-radius:14px;font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border:2px solid;}
-.sbtn-tf{background:var(--gd);border-color:var(--green);color:var(--green);}
-.sbtn-mc{background:var(--od);border-color:var(--orange);color:var(--orange);}
-.sico{font-size:22px;}
+header h1{
+    color:#d4af37;
+    font-size:32px;
+    margin-bottom:10px;
+}
 
-/* MODE */
-#sm{justify-content:center;text-align:center;gap:22px;}
-.back-btn{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'Cairo',sans-serif;font-size:13px;border-radius:10px;padding:9px 18px;}
-.mtitle{font-size:20px;font-weight:900;color:var(--white);}
-.msub{font-size:13px;color:var(--muted);}
-.mbx{width:100%;max-width:340px;display:flex;flex-direction:column;gap:14px;}
-.mstd{width:100%;padding:18px;border-radius:16px;background:var(--bd);border:2px solid var(--blue);color:var(--blue);font-family:'Cairo',sans-serif;font-size:17px;font-weight:900;}
-.mexm{width:100%;padding:18px;border-radius:16px;background:linear-gradient(135deg,var(--orange),#f0a94a);border:none;color:#000;font-family:'Cairo',sans-serif;font-size:17px;font-weight:900;box-shadow:0 8px 28px rgba(232,130,12,.38);}
+header p{
+    color:#ccc;
+    line-height:1.8;
+}
 
-/* STUDY */
-#ss{justify-content:flex-start;gap:18px;max-width:600px;width:100%;margin:0 auto;}
-.shdr{width:100%;display:flex;align-items:center;justify-content:space-between;}
-.qcnt{font-size:13px;color:var(--muted);font-weight:600;}
-.qcnt strong{color:var(--orange);font-size:18px;}
-.mbadge{border-radius:50px;padding:6px 14px;font-size:12px;font-weight:700;background:var(--bd);border:1px solid var(--blue);color:var(--blue);}
-.pwrap{width:100%;background:var(--border);border-radius:100px;height:6px;overflow:hidden;}
-.pbar{height:100%;background:linear-gradient(90deg,var(--orange),#f0a94a);border-radius:100px;transition:width .4s cubic-bezier(.4,0,.2,1);box-shadow:0 0 10px rgba(232,130,12,.5);}
-.scard{width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;}
-.scard.ai{animation:si .38s cubic-bezier(.4,0,.2,1);}
-.scard.ab{animation:sb .38s cubic-bezier(.4,0,.2,1);}
-.slbl{font-size:11px;color:var(--blue);font-weight:700;letter-spacing:1px;margin-bottom:10px;}
-.sqtxt{font-size:16px;font-weight:800;color:var(--white);line-height:1.65;margin-bottom:18px;}
-.sdiv{width:100%;height:1px;background:var(--border);margin-bottom:16px;}
-.salbl{font-size:11px;color:var(--green);font-weight:700;letter-spacing:1px;margin-bottom:10px;}
-.sans{font-size:14px;color:var(--text);line-height:1.9;}
-.tfbadge{display:inline-block;border-radius:8px;padding:5px 16px;font-size:14px;font-weight:900;margin-bottom:10px;}
-.tfok{background:var(--gd);border:1px solid var(--green);color:var(--green);}
-.tfno{background:var(--rd);border:1px solid var(--red);color:var(--red);}
-.corbox{margin-top:12px;padding:12px;background:var(--od);border:1px solid var(--orange);border-radius:12px;font-size:13px;color:#f0a94a;line-height:1.7;}
-.schoices{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
-.scrow{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:12px;border:1px solid var(--border);font-size:14px;}
-.scrow.ok{border-color:var(--green);background:var(--gd);color:var(--green);font-weight:700;}
-.scrow.no{color:var(--muted);}
-.sclet{min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0;}
-.sclet.ok{background:var(--green);color:#fff;}
-.sclet.no{background:var(--border);color:var(--muted);}
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
 
-.navrow{width:100%;display:flex;gap:10px;}
-.prevbtn{background:var(--card);border:2px solid var(--muted);color:var(--muted);font-family:'Cairo',sans-serif;font-size:15px;font-weight:700;border-radius:14px;padding:15px 18px;display:none;white-space:nowrap;}
-.prevbtn.on{display:block;}
-.nxtsbtn{flex:1;background:var(--card);border:2px solid var(--blue);color:var(--blue);font-family:'Cairo',sans-serif;font-size:15px;font-weight:700;border-radius:14px;padding:15px;}
-.startbtn{width:100%;background:linear-gradient(135deg,var(--orange),#f0a94a);border:none;color:#000;font-family:'Cairo',sans-serif;font-size:16px;font-weight:900;border-radius:14px;padding:16px;box-shadow:0 6px 22px rgba(232,130,12,.35);display:none;}
-.startbtn.on{display:block;animation:fi .4s ease;}
-.homebtn{margin-top:8px;width:100%;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:'Cairo',sans-serif;font-size:13px;border-radius:12px;padding:11px;}
+.player-box{
+    background:#161b22;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:30px;
+    box-shadow:0 0 25px rgba(212,175,55,.15);
+}
 
-/* EXAM */
-#se{justify-content:flex-start;gap:18px;max-width:600px;width:100%;margin:0 auto;}
-.ehdr{width:100%;display:flex;align-items:center;justify-content:space-between;}
-.scbadge{background:var(--gd);border:1px solid var(--green);border-radius:50px;padding:6px 14px;font-size:13px;color:var(--green);font-weight:700;}
-.qcard{width:100%;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px;}
-.qcard.ai{animation:si .38s cubic-bezier(.4,0,.2,1);}
-.qcard.ab{animation:sb .38s cubic-bezier(.4,0,.2,1);}
-.qlbl{font-size:11px;color:var(--orange);font-weight:700;letter-spacing:1px;margin-bottom:10px;}
-.qtxt{font-size:15px;font-weight:700;line-height:1.7;color:var(--white);}
+.video-title{
+    padding:15px;
+    font-size:20px;
+    color:#d4af37;
+    text-align:center;
+    font-weight:bold;
+}
 
-.tfbtns{width:100%;display:flex;gap:12px;}
-.tfbtn{flex:1;padding:20px 10px;border-radius:16px;font-family:'Cairo',sans-serif;font-size:24px;font-weight:900;border:2px solid var(--border);background:var(--card);color:var(--text);display:flex;flex-direction:column;align-items:center;gap:6px;}
-.tfbtn span{font-size:13px;font-weight:700;}
-.tfbtn.ok{border-color:var(--green);background:var(--gd);color:var(--green);animation:pk .38s ease;}
-.tfbtn.no{border-color:var(--red);background:var(--rd);color:var(--red);animation:sh .38s ease;}
+iframe{
+    width:100%;
+    aspect-ratio:16/9;
+    border:none;
+}
 
-.choices{width:100%;display:flex;flex-direction:column;gap:10px;}
-.cbtn{width:100%;background:var(--card);border:2px solid var(--border);border-radius:14px;padding:15px 16px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:12px;text-align:right;}
-.clet{min-width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;background:var(--border);color:var(--muted);flex-shrink:0;transition:background .2s,color .2s;}
-.cbtn.ok{border-color:var(--green);background:var(--gd);animation:pk .38s cubic-bezier(.4,0,.2,1);}
-.cbtn.ok .clet{background:var(--green);color:#fff;}
-.cbtn.no{border-color:var(--red);background:var(--rd);animation:sh .38s ease;}
-.cbtn.no .clet{background:var(--red);color:#fff;}
-.cbtn.dim{opacity:.34;}
-.cbtn:disabled{cursor:default;}
+.list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:15px;
+}
 
-.fbbox{width:100%;border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.7;display:none;animation:fi .3s ease;}
-.fbbox.on{display:block;}
-.cfb{background:var(--gd);border:1px solid var(--green);color:var(--green);}
-.wfb{background:var(--rd);border:1px solid var(--red);color:#ff8888;}
-.fbtitle{font-weight:900;font-size:15px;margin-bottom:5px;}
+.card{
+    background:#161b22;
+    border:1px solid #2b3240;
+    border-radius:12px;
+    padding:15px;
+    cursor:pointer;
+    transition:.3s;
+}
 
-.nxtebtn{flex:1;background:var(--card);border:2px solid var(--orange);color:var(--orange);font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;border-radius:14px;padding:15px;display:none;}
-.nxtebtn.on{display:block;animation:fi .3s ease;}
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#d4af37;
+}
 
-/* RESULT */
-#sr{justify-content:flex-start;gap:22px;max-width:560px;width:100%;margin:0 auto;padding-top:36px;}
-.rcircle{width:144px;height:144px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;animation:sp .6s cubic-bezier(.4,0,.2,1);}
-.rcircle::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(var(--c1) var(--pct),var(--border) 0);z-index:-1;}
-.rcircle::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--card);z-index:-1;}
-.rplbl{font-size:12px;color:var(--muted);margin-top:2px;}
-.rmsg{text-align:center;}
-.rmsg h2{font-size:22px;font-weight:900;margin-bottom:8px;}
-.rmsg p{font-size:14px;color:var(--muted);}
-.rstats{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.rsc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;text-align:center;}
-.rsn{font-size:28px;font-weight:900;}
-.rsl{font-size:12px;color:var(--muted);margin-top:4px;}
-.rbtns{width:100%;display:flex;flex-direction:column;gap:12px;}
-.revbtn{width:100%;background:var(--rd);border:2px solid var(--red);color:#ff8888;font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;border-radius:14px;padding:16px;}
-.rstbtn{width:100%;background:linear-gradient(135deg,var(--orange),#f0a94a);border:none;color:#000;font-family:'Cairo',sans-serif;font-size:16px;font-weight:900;border-radius:14px;padding:16px;box-shadow:0 6px 22px rgba(232,130,12,.35);}
-.hmebtn{width:100%;background:var(--card);border:2px solid var(--blue);color:var(--blue);font-family:'Cairo',sans-serif;font-size:15px;font-weight:700;border-radius:14px;padding:15px;}
+.card h3{
+    color:#d4af37;
+    font-size:16px;
+    margin-bottom:8px;
+}
 
-/* REVIEW */
-#sv{justify-content:flex-start;gap:14px;max-width:600px;width:100%;margin:0 auto;}
-.vhdr{width:100%;display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--border);}
-.vtitle{font-size:18px;font-weight:900;color:var(--red);}
-.vcnt{background:var(--rd);border:1px solid var(--red);border-radius:50px;padding:4px 12px;font-size:13px;color:#ff8888;font-weight:700;}
-.vitm{width:100%;background:var(--card);border:1px solid var(--border);border-right:4px solid var(--red);border-radius:16px;padding:18px;animation:fi .3s ease;}
-.vnum{font-size:11px;color:var(--red);font-weight:700;letter-spacing:1px;margin-bottom:8px;}
-.vqtxt{font-size:14px;font-weight:700;color:var(--white);line-height:1.6;margin-bottom:12px;}
-.vrow{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
-.vtag{min-width:62px;text-align:center;border-radius:6px;padding:3px 8px;font-size:12px;font-weight:700;}
-.twrong{background:var(--rd);color:var(--red);border:1px solid var(--red);}
-.tcor{background:var(--gd);color:var(--green);border:1px solid var(--green);}
-.vans{font-size:13px;color:var(--muted);line-height:1.6;}
-.bkbtn{width:100%;background:var(--card);border:2px solid var(--green);color:var(--green);font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;border-radius:14px;padding:16px;margin-top:6px;}
+.card p{
+    color:#ccc;
+    font-size:14px;
+}
 
-.cpiece{position:fixed;width:8px;height:14px;border-radius:2px;top:-20px;animation:cf 3s ease-in forwards;z-index:999;pointer-events:none;}
+footer{
+    text-align:center;
+    padding:25px;
+    color:#888;
+}
 </style>
 </head>
 <body>
-<div id="particles"></div>
 
-<!-- WELCOME -->
-<div id="sw" class="scr on">
-  <div class="logo">🚀</div>
-  <div><div class="wtitle">ريادة الأعمال<br>والمشروعات الصغيرة</div></div>
-  <div class="wsub">اختار نوع الأسئلة اللي عايز تذاكرها أو تختبر نفسك فيها</div>
-  <div class="chips">
-    <div class="chip"><b>32</b> صح / غلط</div>
-    <div class="chip"><b>27</b> اختيار</div>
-  </div>
-  <div class="sbx">
-    <button class="sbtn sbtn-tf" id="btn-tf"><span class="sico">✅</span> أسئلة صح وغلط</button>
-    <button class="sbtn sbtn-mc" id="btn-mc"><span class="sico">🎯</span> أسئلة الاختيار</button>
-  </div>
+<header>
+    <h1>📖 تلاوات مختارة للشيخ ياسر الدوسري</h1>
+    <p>مجموعة من التلاوات المؤثرة والخاشعة التي أحبها وأحب مشاركتها</p>
+</header>
+
+<div class="container">
+
+<div class="player-box">
+    <div class="video-title" id="videoTitle">
+        سورة القيامة من أجمل التلاوات إلى قلبي
+    </div>
+
+    <iframe id="player"
+    src="https://www.youtube.com/embed/GhET5RHUwJg"
+    allowfullscreen></iframe>
 </div>
 
-<!-- MODE -->
-<div id="sm" class="scr">
-  <button class="back-btn" id="btn-back-mode">→ رجوع</button>
-  <div class="logo" id="mode-ico" style="font-size:44px">✅</div>
-  <div class="mtitle" id="mode-ttl">أسئلة صح وغلط</div>
-  <div class="msub"   id="mode-sub">32 سؤال</div>
-  <div class="mbx">
-    <button class="mstd" id="btn-study">📖 ذاكر الاختبار</button>
-    <button class="mexm" id="btn-exam">🚀 ابدأ الاختبار</button>
-  </div>
+<div class="list">
+
+<div class="card" onclick="playVideo('GhET5RHUwJg','سورة القيامة من أجمل التلاوات إلى قلبي')">
+<h3>سورة القيامة</h3>
+<p>من أجمل التلاوات إلى قلبي</p>
 </div>
 
-<!-- STUDY -->
-<div id="ss" class="scr">
-  <div class="shdr" style="width:100%">
-    <div class="qcnt">سؤال <strong id="snum">1</strong> / <span id="stot">32</span></div>
-    <div class="mbadge">📖 مذاكرة</div>
-  </div>
-  <div class="pwrap" style="width:100%"><div class="pbar" id="spbar" style="width:2%"></div></div>
-  <div class="scard ai" id="scard">
-    <div class="slbl">❓ السؤال</div>
-    <div class="sqtxt" id="sqtxt"></div>
-    <div class="sdiv"></div>
-    <div class="salbl">✅ الإجابة</div>
-    <div class="sans" id="sans"></div>
-  </div>
-  <div class="navrow">
-    <button class="prevbtn" id="s-prev">→ السابق</button>
-    <button class="nxtsbtn" id="s-next">التالي ←</button>
-  </div>
-  <button class="startbtn" id="s-start">🚀 ابدأ الاختبار</button>
-  <button class="homebtn" id="s-home">← القائمة الرئيسية</button>
+<div class="card" onclick="playVideo('0sVi9bnI5-U','وبرزوا لله الواحد القهار')">
+<h3>وبرزوا لله الواحد القهار</h3>
+<p>استمع للقراءة</p>
 </div>
 
-<!-- EXAM -->
-<div id="se" class="scr">
-  <div class="ehdr" style="width:100%">
-    <div class="qcnt">سؤال <strong id="enum">1</strong> / <span id="etot">32</span></div>
-    <div class="scbadge">✅ <span id="escore">0</span></div>
-  </div>
-  <div class="pwrap" style="width:100%"><div class="pbar" id="epbar" style="width:0%"></div></div>
-  <div class="qcard ai" id="qcard">
-    <div class="qlbl" id="elbl">📝 صح أم غلط؟</div>
-    <div class="qtxt" id="eqtxt"></div>
-  </div>
-  <div id="eans"></div>
-  <div class="fbbox" id="efb"></div>
-  <div class="navrow">
-    <button class="prevbtn" id="e-prev">→ السابق</button>
-    <button class="nxtebtn" id="e-next">التالي ←</button>
-  </div>
+<div class="card" onclick="playVideo('9hNvJDGb_z4','قال إنما أشكو بثي وحزني إلى الله')">
+<h3>سورة يوسف</h3>
+<p>السورة المفضلة لي</p>
 </div>
 
-<!-- RESULT -->
-<div id="sr" class="scr">
-  <div class="rcircle" id="rcircle">
-    <div id="rpct" style="font-size:32px;font-weight:900">0%</div>
-    <div class="rplbl">النتيجة</div>
-  </div>
-  <div class="rmsg"><h2 id="rmsg">💪 أحسنت!</h2><p id="rsub">استمر في المراجعة</p></div>
-  <div class="rstats">
-    <div class="rsc"><div class="rsn" id="rc" style="color:var(--green)">0</div><div class="rsl">✅ صحيحة</div></div>
-    <div class="rsc"><div class="rsn" id="rw" style="color:var(--red)">0</div><div class="rsl">❌ خاطئة</div></div>
-    <div class="rsc" style="grid-column:1/-1"><div class="rsn" id="rt" style="color:var(--orange)">0</div><div class="rsl">📋 إجمالي</div></div>
-  </div>
-  <div class="rbtns">
-    <button class="revbtn" id="btn-review">📖 راجع الأسئلة الغلط</button>
-    <button class="rstbtn" id="btn-restart">🔄 ابدأ الاختبار من جديد</button>
-    <button class="hmebtn" id="btn-home-r">🏠 القائمة الرئيسية</button>
-  </div>
+<div class="card" onclick="playVideo('QYkNL8jPRQc','وبشر الصابرين')">
+<h3>وبشر الصابرين</h3>
+<p>تلاوة رائعة</p>
 </div>
 
-<!-- REVIEW -->
-<div id="sv" class="scr">
-  <div class="vhdr" style="width:100%">
-    <div class="vtitle">❌ الأسئلة الخاطئة</div>
-    <div class="vcnt" id="vcnt">0</div>
-  </div>
-  <div id="vlist" style="width:100%;display:flex;flex-direction:column;gap:14px"></div>
-  <button class="bkbtn" id="btn-back-rev">← الرجوع للنتيجة</button>
+<div class="card" onclick="playVideo('wOXndBDNILs','ونادى أصحاب النار')">
+<h3>ونادى أصحاب النار</h3>
+<p>تلاوة مؤثرة جدًا</p>
 </div>
+
+<div class="card" onclick="playVideo('1OEAkSq6fug','بديع السماوات والأرض')">
+<h3>بديع السماوات والأرض</h3>
+<p>تلاوة عراقية تاريخية</p>
+</div>
+
+<div class="card" onclick="playVideo('2WXG175vGBU','أإله مع الله')">
+<h3>أإله مع الله</h3>
+<p>عيش أجمل اللحظات</p>
+</div>
+
+<div class="card" onclick="playVideo('ikvUTTW7ZpU','التائبون العابدون')">
+<h3>التائبون العابدون</h3>
+<p>تلاوة عراقية رائعة</p>
+</div>
+
+<div class="card" onclick="playVideo('D1mFh3NghZo','أن يا موسى إني أنا الله رب العالمين')">
+<h3>أن يا موسى</h3>
+<p>اسمع هذه القراءة</p>
+</div>
+
+<div class="card" onclick="playVideo('PXuUaxbiaYM','كلا إذا بلغت التراقي')">
+<h3>كلا إذا بلغت التراقي</h3>
+<p>تلاوة خاشعة</p>
+</div>
+
+<div class="card" onclick="playVideo('bT_8mDFMv3k','يعدهم ويمنيهم')">
+<h3>يعدهم ويمنيهم</h3>
+<p>تدبر وتأمل</p>
+</div>
+
+<div class="card" onclick="playVideo('KChE3fKdF_U','إن تعذبهم فإنهم عبادك')">
+<h3>إن تعذبهم فإنهم عبادك</h3>
+<p>تلاوة خاشعة</p>
+</div>
+
+<div class="card" onclick="playVideo('Er1504lexsQ','فنادته الملائكة')">
+<h3>فنادته الملائكة</h3>
+<p>بشارة يحيى عليه السلام</p>
+</div>
+
+<div class="card" onclick="playVideo('cG17cHiEzSE','أمن يجيب المضطر')">
+<h3>أمن يجيب المضطر</h3>
+<p>معرفة الله وقدرته</p>
+</div>
+
+<div class="card" onclick="playVideo('06RjC_y4je0','يوم نطوي السماء كطي السجل للكتب')">
+<h3>يوم نطوي السماء</h3>
+<p>قدرة الله على إعادة الخلق</p>
+</div>
+
+<div class="card" onclick="playVideo('zQTYXCPmYKk','وقضى ربك ألا تعبدوا إلا إياه')">
+<h3>وقضى ربك</h3>
+<p>وبالوالدين إحسانًا</p>
+</div>
+
+<div class="card" onclick="playVideo('evKSMMWWito','وكذلك أخذ ربك إذا أخذ القرى')">
+<h3>وكذلك أخذ ربك</h3>
+<p>إذا أخذ القرى وهي ظالمة</p>
+</div>
+
+<div class="card" onclick="playVideo('I7p5AHLA89U','إن المنافقين')">
+<h3>إن المنافقين</h3>
+<p>بأسلوبه المؤثر</p>
+</div>
+
+<div class="card" onclick="playVideo('6i90UlAPNKc','وجاءت سكرة الموت بالحق')">
+<h3>وجاءت سكرة الموت</h3>
+<p>تلاوة قديمة ومبكية</p>
+</div>
+
+<div class="card" onclick="playVideo('H-t2nt9wAMg','ولقد كرمنا بني آدم')">
+<h3>ولقد كرمنا بني آدم</h3>
+<p>تلاوة مؤثرة جدًا</p>
+</div>
+
+<div class="card" onclick="playVideo('YBtBQUseLfE','ويوم يعض الظالم على يديه')">
+<h3>ويوم يعض الظالم</h3>
+<p>صلاة العشاء</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+🤍 اللهم اجعل القرآن ربيع قلوبنا ونور صدورنا
+</footer>
 
 <script>
-const L=['أ','ب','ج','د'];
+function playVideo(id,title){
+    document.getElementById("player").src =
+    "https://www.youtube.com/embed/" + id;
 
-const TF=[
-  {q:"ريادة الأعمال هي عملية إنشاء أعمال أو منظمات جديدة.",a:true,c:null},
-  {q:"يمتلك الريادي القدرة على تحليل الظروف لمعرفة ما سيحدث في المستقبل من خلال تقييمه للفرص.",a:true,c:null},
-  {q:"رواد الأعمال هم أشخاص تحركهم الحاجة لإضافة شيء للحياة.",a:true,c:null},
-  {q:"يعتبر الاستمرارية والثقة بالنفس هم الصفات لنجاح الريادي فقط.",a:false,c:"القدرة على إدارة المخاطرة وغيرها من الصفات أيضاً مطلوبة."},
-  {q:"يعتبر الريادي والآخرون هم الأشخاص الذين يستطيعون تمييز الفرص واغتنامها.",a:false,c:"الآخرون لا يستطيعون تمييز الفرص — هذه ميزة الريادي."},
-  {q:"يعتبر التخطيط والتنفيذ وإدارة المشروعات من مهارات الريادي.",a:true,c:null},
-  {q:"من الخصائص السلوكية لرائد الأعمال مهارات التفاعلية.",a:true,c:null},
-  {q:"من عناصر إجراءات الريادة على مستوى إدارة المشروع الخطة التسويقية.",a:false,c:"الصحيح: نموذج الإدارة."},
-  {q:"من الخطوط الرئيسية لخطة الأعمال الخطة التنفيذية.",a:false,c:"الصحيح: الملخص التنفيذي."},
-  {q:"تعتبر صنع القرارات من المهارات التقنية المطلوبة في الريادة.",a:false,c:"الصحيح: إدارة الأعمال."},
-  {q:"لا يعتبر الابتكار والإبداع من أبعاد الريادة.",a:false,c:"يعتبر الابتكار والإبداع من أبعاد الريادة."},
-  {q:"يعتبر المبادأة من استراتيجيات الريادة.",a:true,c:null},
-  {q:"من أولى الاستعدادات المطلوبة لنجاح المشروع الريادي أن يقوم بالمشروع بمفرده.",a:false,c:"لا تقم بالمشروع بمفردك."},
-  {q:"الإبقاء على هوامش الربح عالية من عوامل إنجاح المشروع.",a:true,c:null},
-  {q:"يجب المحافظة على تحقيق تدفقات نقدية متناقصة باستمرار حتى تتلاشى لنجاح المشروع.",a:false,c:"التدفقات النقدية يجب أن تكون مستمرة لدعم استمرارية المشروع، لأن تلاشيها يعني غياب السيولة."},
-  {q:"يعتبر المرحلة الأولى لإنجاز المشروع الريادي هي إعداد دراسة الجدوى.",a:false,c:"الصحيح: تحديد الهدف."},
-  {q:"المرحلة الأخيرة من مراحل دورة المشروع هي التشغيل.",a:true,c:null},
-  {q:"يعتبر الاهتمام بالشؤون المختلفة المتعلقة بالتقنية من حيث الاكتساب من مراحل الاستثمار والتنفيذ.",a:true,c:null},
-  {q:"من مهام دراسة الجدوى اختيار أحسن بديل الذي يحقق أكبر عائد مقارنة.",a:false,c:"الصحيح: أفضل بديل."},
-  {q:"تتمكن دراسة الجدوى من استكشاف مستقبل المشروع لفترة.",a:true,c:null},
-  {q:"من مشاكل التي تواجه دراسة الجدوى الاقتصادية للمشروعات صعوبة وضع معيار دقيق لتكلفة الاستثمارات الرأسمالية.",a:true,c:null},
-  {q:"من صعوبات دراسة الجدوى صعوبة تحديد نقطة النهاية لكل مشروع استثماري فقط.",a:false,c:"هناك صعوبات أخرى عديدة إضافة إلى تحديد نقطة النهاية."},
-  {q:"يعتبر الأفكار الجديدة والجيدة تصلح لإقامة مشروع ناجح.",a:false,c:"ليس كل فكرة جديدة وجيدة تكفي لإقامة مشروع ناجح."},
-  {q:"يعتبر القدرة على استمرار المشروع في الظروف المستقرة دائماً من خصائص الفرصة الجيدة.",a:false,c:"الفرصة الجيدة تستمر حتى في الظروف غير المستقرة."},
-  {q:"من المصادر الخارجية لأفكار المشروعات استقصاء آراء خبراء المكاتب الاستثمارية.",a:false,c:"هذا مصدر داخلي وليس خارجياً."},
-  {q:"يعتبر أفكار المشروعات التي تم تنفيذها في الماضي من المصادر الداخلية لأفكار المشروعات.",a:false,c:"هي من المصادر الخارجية."},
-  {q:"من المصادر الخارجية لأفكار المشروعات الجديدة دراسات فرص الاستثمار المحلية والدولية.",a:false,c:"هذه من المصادر الداخلية."},
-  {q:"دائماً نختم بالدراسة التسويقية لأن المشكلة لم تعد مشكلة إنتاج بل مشكلة تسويق وبيع المنتج.",a:false,c:"نبدأ بالدراسة التسويقية وليس نختم بها."},
-  {q:"تطبيق استراتيجية تسعير مناسبة لأكبر شريحة من المستهلكين من العوامل التي يُستند إليها عند وضع خطة التسعير.",a:true,c:null},
-  {q:"يعتبر استراتيجية التسعير المنخفضة بشكل كبير من الاعتبارات التي تُطبق عند التسعير في بداية المشروع.",a:false,c:"التسعير المنخفض جداً في البداية قد يضر بالمشروع."},
-  {q:"تعتبر الدعاية من أهم أساليب الترويج المدفوعة التي يعتمد عليها للتسويق للمشروع.",a:false,c:"الإعلان هو أهم أساليب الترويج المدفوعة وليس الدعاية."},
-  {q:"يعتبر رأس المال الثابت من التكاليف التي يحتاجها المشروع لدورة إنتاجية واحدة.",a:false,c:"رأس المال العامل هو الذي يحتاجه المشروع لدورة إنتاجية واحدة."},
-];
+    document.getElementById("videoTitle").innerText = title;
 
-const MC=[
-  {q:"من الخصائص الأساسية للمبادر أو رجل الأعمال الصغير",ch:["الخصائص الشخصية","الخصائص السلوكية","المهارات الإدارية","جميع ما سبق"],a:3},
-  {q:"من عناصر تطوير خطة الأعمال لإجراءات الريادة",ch:["الوضع التنافسي","التعرف على قدرة الريادي","الملخص","عناصر النجاح"],a:2},
-  {q:"من المهارات الريادية الشخصية",ch:["الشخصية","المثابرة","وضع الأهداف والخطط","لا شيء مما سبق"],a:1},
-  {q:".......... هو الاستراتيجية المستخدمة في الريادة",ch:["أخذ المخاطرة","المبادرة","التنوع","جميع ما سبق"],a:0},
-  {q:"يعتبر ...... من عناصر الخطة المالية في خطة الأعمال",ch:["تحليل نقطة التعادل","تقدير التدفقات النقدية","الخطة الطارئة","ب و أ معًا"],a:3},
-  {q:"تعتبر .......... من الخصائص الشخصية في المبادر الشاب",ch:["المشاركة","الاعتزاز بالنفس","الرغبة في الاستقلالية","لا شيء مما سبق"],a:2},
-  {q:"من عناصر إجراءات الريادة من ناحية تقييم الفرص",ch:["تحديد المشاكل","الوضع التنافسي وابتكار الفرص","الموارد التي تحتاجها","جميع ما سبق"],a:1},
-  {q:"من أولى الاستعدادات المطلوبة لنجاح المشروع الريادي",ch:["افعل ما تحبه","كتابة خطة العمل","الحصول على مساعدة حرفية","التأكد من استمرار المال"],a:0},
-  {q:"من العوامل التي تجعل المشروع ناجحًا",ch:["المحافظة على المبيعات","المحافظة على استمرارية المشروع","الرغبة في المخاطرة","تحقيق وفورات الحجم"],a:1},
-  {q:"تعتبر دراسة الجدوى التفصيلية هي ...... من مراحل إنجاز المشروع",ch:["المرحلة الثانية","المرحلة الخامسة","المرحلة الرابعة","المرحلة الأخيرة"],a:2},
-  {q:"المرحلة الثانية من مراحل إنجاز المشروع هي......",ch:["إعداد برنامج زمني","دراسة جدوى تفصيلية","توفير التمويل","دراسة جدوى مبدئية"],a:3},
-  {q:"مرحلة .......... هي التي تعتمد على تعريف فرص المشروع من خلال ترجمة فرص المشروع إلى نماذج استثمارية",ch:["إعداد الحزم الاستثمارية","الغربلة","التعرف على فرص الاستثمار","التطوير"],a:0},
-  {q:"المرحلة التي توفر كافة المعلومات الخاصة باتخاذ قرار استثماري........",ch:["التقييم","دراسة الجدوى الاقتصادية","ما قبل دراسة الجدوى","الغربلة"],a:1},
-  {q:"من مشاكل إعداد دراسة الجدوى الاقتصادية",ch:["ندرة الموارد","عدم الالتزام بالتسعير الإجباري","عدم توافر الإحصاءات","جميع ما سبق"],a:2},
-  {q:"اكتشاف فكرة المشروع قد تكون",ch:["استثمار أموال أو إنتاج سلع","استغلال مورد طبيعي أو اختراع جديد","مشروعات مماثلة لمشروع ناجح","جميع ما سبق"],a:3},
-  {q:"تعتبر دراسة الجدوى وسيلة للاستفادة من الموارد النادرة من خلال",ch:["اختيار أفضل بديل يحقق أفضل عائد","الحفاظ على الموارد واستهلاك جزء بسيط","الالتزام بالتسعير الإجباري","(أ) و(ب)"],a:3},
-  {q:"أهمية دراسة الجدوى الاقتصادية",ch:["دراسة جميع الجوانب المتعلقة بالمشروع","اكتشاف الفرص الاستثمارية والتركيز على الجوانب التي تحتاج عناية خاصة","الحصول على القروض والتسهيلات من الدولة","جميع ما سبق"],a:3},
-  {q:"من المصادر الخارجية لأفكار المشروعات",ch:["مبادرات القطاع العام","مبادرات القطاع الخاص","الحصول على مساعدة مراكز البحوث","لا شيء مما سبق"],a:3},
-  {q:"تعتبر مرحلة التقييم المرحلة ...... لتقييم المشروعات الصغيرة",ch:["المرحلة الرابعة","المرحلة الخامسة","المرحلة قبل الأخيرة","ب و ج معًا"],a:2},
-  {q:"...... هي وسيلة عملية وعلمية توضح للمستثمر احتمالات نجاح أو فشل المشروع قبل الاستغراق في التفاصيل",ch:["مرحلة التقييم","الفرص الاستثمارية","دراسة الجدوى الأولية","لا شيء مما سبق"],a:2},
-  {q:"تتكون دورة حياة المنتج من......",ch:["خمس مراحل","سبع مراحل","أربع مراحل","ثلاثة مراحل"],a:2},
-  {q:"يعتبر طرح منتج بسعر عالٍ في البداية وخفضه تدريجيًا مع خفض تكاليف التصنيع هي استراتيجية......",ch:["القشط","الحصد","الاختراق","أ و ب معًا"],a:3},
-  {q:"يتم تطبيق استراتيجية القشط عندما يكون هناك....",ch:["خبرة عالية للإنتاج","ميزة تنافسية","منتج جديد","كل ما سبق"],a:0},
-  {q:"يعتبر طرح المنتج بسعر منخفض ورفعه تدريجيًا هي استراتيجية",ch:["الاختراق","التغلغل السريع","التغلغل البطيء","كل ما سبق"],a:0},
-  {q:"يتم تطبيق استراتيجية التغلغل البطيء عندما",ch:["استثمار أموال أو إنتاج سلع","بيع بكميات كبيرة وأدنى جهد ترويجي","بيع بكميات كبيرة وجهد ترويجي مرتفع","أ و ب معًا"],a:1},
-  {q:"يتم تطبيق استراتيجية التغلغل السريع عندما",ch:["اختيار أفضل بديل يحقق أفضل عائد","بيع بكميات كبيرة وجهد ترويجي مرتفع","بيع بكميات كبيرة وأدنى جهد ترويجي","(أ) و(ب)"],a:1},
-  {q:"يتكون رأس المال العامل من......",ch:["المستلزمات السلعية","وسائل النقل","الأثاث","الأراضي"],a:0},
-];
-
-// STATE
-let sec='tf',studyD=[],studyIdx=0;
-let exArr=[],exIdx=0,exScore=0,exWrong=[],exHist=[],exDone=false;
-
-// PARTICLES
-(function(){
-  const p=document.getElementById('particles');
-  const cols=['#E8820C','#2D9E5F','#f0a94a','#3ab575','#3a8fd4'];
-  for(let i=0;i<18;i++){
-    const d=document.createElement('div');d.className='pt';
-    d.style.left=Math.random()*100+'%';
-    d.style.background=cols[i%cols.length];
-    const s=3+Math.random()*5;d.style.width=d.style.height=s+'px';
-    d.style.animationDuration=(8+Math.random()*14)+'s';
-    d.style.animationDelay=(Math.random()*14)+'s';
-    p.appendChild(d);
-  }
-})();
-
-function shuf(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=~~(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
-
-// iOS-safe tap handler
-function tap(id,fn){
-  const el=document.getElementById(id);if(!el)return;
-  let tp=false;
-  el.addEventListener('touchend',function(e){e.preventDefault();tp=true;fn();},{passive:false});
-  el.addEventListener('click',function(){if(!tp)fn();tp=false;});
-}
-function tapEl(el,fn){
-  let tp=false;
-  el.addEventListener('touchend',function(e){e.preventDefault();tp=true;fn();},{passive:false});
-  el.addEventListener('click',function(){if(!tp)fn();tp=false;});
-}
-
-function go(id){
-  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  window.scrollTo(0,0);
-}
-
-window.addEventListener('DOMContentLoaded',function(){
-  tap('btn-tf',()=>pickSec('tf'));
-  tap('btn-mc',()=>pickSec('mc'));
-  tap('btn-back-mode',()=>go('sw'));
-  tap('btn-study',()=>startStudy());
-  tap('btn-exam',()=>startExam());
-  tap('s-prev',()=>studyPrev());
-  tap('s-next',()=>studyNext());
-  tap('s-start',()=>startExam());
-  tap('s-home',()=>go('sw'));
-  tap('e-prev',()=>exPrev());
-  tap('e-next',()=>exNext());
-  tap('btn-review',()=>showReview());
-  tap('btn-restart',()=>startExam());
-  tap('btn-home-r',()=>go('sw'));
-  tap('btn-back-rev',()=>go('sr'));
-});
-
-function pickSec(s){
-  sec=s;
-  const tf=s==='tf';
-  document.getElementById('mode-ico').textContent=tf?'✅':'🎯';
-  document.getElementById('mode-ttl').textContent=tf?'أسئلة صح وغلط':'أسئلة الاختيار';
-  document.getElementById('mode-sub').textContent=tf?'32 سؤال':'27 سؤال';
-  go('sm');
-}
-
-// ── STUDY ──
-function startStudy(){
-  studyD=sec==='tf'?TF:MC;studyIdx=0;
-  document.getElementById('stot').textContent=studyD.length;
-  go('ss');renderStudy();
-}
-function renderStudy(dir){
-  const it=studyD[studyIdx];
-  const card=document.getElementById('scard');
-  card.className='scard '+(dir==='back'?'ab':'ai');void card.offsetWidth;
-  document.getElementById('snum').textContent=studyIdx+1;
-  document.getElementById('spbar').style.width=((studyIdx+1)/studyD.length*100)+'%';
-  document.getElementById('sqtxt').textContent=it.q;
-  const an=document.getElementById('sans');an.innerHTML='';
-  if(sec==='tf'){
-    const b=document.createElement('div');
-    b.className='tfbadge '+(it.a?'tfok':'tfno');
-    b.textContent=it.a?'✅ صح':'❌ غلط';
-    an.appendChild(b);
-    if(!it.a&&it.c){const bx=document.createElement('div');bx.className='corbox';bx.innerHTML='<strong>التصحيح:</strong> '+it.c;an.appendChild(bx);}
-  } else {
-    const cont=document.createElement('div');cont.className='schoices';
-    it.ch.forEach((c,i)=>{
-      const row=document.createElement('div');
-      const ok=i===it.a;
-      row.className='scrow '+(ok?'ok':'no');
-      row.innerHTML=`<div class="sclet ${ok?'ok':'no'}">${L[i]}</div><span>${c}</span>`;
-      cont.appendChild(row);
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
     });
-    an.appendChild(cont);
-  }
-  document.getElementById('s-prev').className=studyIdx>0?'prevbtn on':'prevbtn';
-  document.getElementById('s-start').className=studyIdx===studyD.length-1?'startbtn on':'startbtn';
-}
-function studyNext(){if(studyIdx<studyD.length-1){studyIdx++;renderStudy('fwd');}}
-function studyPrev(){if(studyIdx>0){studyIdx--;renderStudy('back');}}
-
-// ── EXAM ──
-function startExam(){
-  if(sec==='tf'){exArr=shuf(TF);}else{exArr=shuf(MC);}
-  exIdx=0;exScore=0;exWrong=[];exHist=[];exDone=false;
-  document.getElementById('etot').textContent=exArr.length;
-  go('se');
-  sec==='tf'?renderTF():renderMC();
-}
-
-function renderTF(dir){
-  const q=exArr[exIdx],prev=exHist[exIdx];
-  document.getElementById('enum').textContent=exIdx+1;
-  document.getElementById('escore').textContent=exScore;
-  document.getElementById('epbar').style.width=(exIdx/exArr.length*100)+'%';
-  document.getElementById('elbl').textContent='📝 صح أم غلط؟';
-  const card=document.getElementById('qcard');
-  card.className='qcard '+(dir==='back'?'ab':'ai');void card.offsetWidth;
-  document.getElementById('eqtxt').textContent=q.q;
-  const area=document.getElementById('eans');area.innerHTML='';
-  const wrap=document.createElement('div');wrap.className='tfbtns';
-  const bt=document.createElement('button');bt.className='tfbtn';bt.innerHTML='✅<span>صح</span>';
-  const bf=document.createElement('button');bf.className='tfbtn';bf.innerHTML='❌<span>غلط</span>';
-  wrap.appendChild(bt);wrap.appendChild(bf);area.appendChild(wrap);
-  tapEl(bt,()=>tfAns(true));tapEl(bf,()=>tfAns(false));
-  const fb=document.getElementById('efb');
-  document.getElementById('e-prev').className=exIdx>0?'prevbtn on':'prevbtn';
-  if(prev!==undefined){
-    exDone=true;bt.disabled=true;bf.disabled=true;
-    (prev.ch?bt:bf).classList.add(prev.ok?'ok':'no');
-    if(!prev.ok)(q.a?bt:bf).classList.add('ok');
-    fb.className='fbbox '+(prev.ok?'cfb on':'wfb on');
-    fb.innerHTML=prev.ok?'<div class="fbtitle">✅ إجابة صحيحة!</div>أحسنت!':`<div class="fbtitle">❌ إجابة خاطئة</div>الإجابة الصحيحة: <strong>${q.a?'صح ✅':'غلط ❌'}</strong>${q.c?'<br><span style="color:#f0a94a">التصحيح: '+q.c+'</span>':''}`;
-    document.getElementById('e-next').className='nxtebtn on';
-  } else {
-    exDone=false;fb.className='fbbox';fb.innerHTML='';document.getElementById('e-next').className='nxtebtn';
-  }
-}
-
-function tfAns(v){
-  if(exDone)return;exDone=true;
-  const q=exArr[exIdx],ok=v===q.a;
-  const bt=document.querySelector('.tfbtn:first-child'),bf=document.querySelector('.tfbtn:last-child');
-  bt.disabled=true;bf.disabled=true;
-  (v?bt:bf).classList.add(ok?'ok':'no');
-  if(!ok)(q.a?bt:bf).classList.add('ok');
-  exHist[exIdx]={ch:v,ok};
-  if(ok){exScore++;document.getElementById('escore').textContent=exScore;document.getElementById('efb').className='fbbox cfb on';document.getElementById('efb').innerHTML='<div class="fbtitle">✅ إجابة صحيحة!</div>أحسنت!';}
-  else{document.getElementById('efb').className='fbbox wfb on';document.getElementById('efb').innerHTML=`<div class="fbtitle">❌ إجابة خاطئة</div>الإجابة الصحيحة: <strong>${q.a?'صح ✅':'غلط ❌'}</strong>${q.c?'<br><span style="color:#f0a94a">التصحيح: '+q.c+'</span>':''}`;
-    if(!exWrong.find(w=>w.i===exIdx))exWrong.push({i:exIdx,n:exIdx+1,q:q.q,ct:v?'صح ✅':'غلط ❌',at:q.a?'صح ✅':'غلط ❌',c:q.c});}
-  document.getElementById('e-next').className='nxtebtn on';
-}
-
-function renderMC(dir){
-  const q=exArr[exIdx],prev=exHist[exIdx];
-  document.getElementById('enum').textContent=exIdx+1;
-  document.getElementById('escore').textContent=exScore;
-  document.getElementById('epbar').style.width=(exIdx/exArr.length*100)+'%';
-  document.getElementById('elbl').textContent='📝 اختر الإجابة الصحيحة';
-  const card=document.getElementById('qcard');
-  card.className='qcard '+(dir==='back'?'ab':'ai');void card.offsetWidth;
-  document.getElementById('eqtxt').textContent=q.q;
-  const area=document.getElementById('eans');area.innerHTML='';
-  const cont=document.createElement('div');cont.className='choices';
-  q.ch.forEach((c,i)=>{
-    const btn=document.createElement('button');btn.className='cbtn';
-    btn.innerHTML=`<div class="clet">${L[i]}</div><span>${c}</span>`;
-    tapEl(btn,()=>mcAns(i));
-    cont.appendChild(btn);
-  });
-  area.appendChild(cont);
-  const fb=document.getElementById('efb');
-  document.getElementById('e-prev').className=exIdx>0?'prevbtn on':'prevbtn';
-  if(prev!==undefined){
-    exDone=true;
-    const btns=cont.querySelectorAll('.cbtn');btns.forEach(b=>b.disabled=true);
-    btns[prev.ch].classList.add(prev.ok?'ok':'no');
-    if(!prev.ok)btns[q.a].classList.add('ok');
-    btns.forEach((b,i)=>{if(i!==prev.ch&&i!==q.a)b.classList.add('dim');});
-    fb.className='fbbox '+(prev.ok?'cfb on':'wfb on');
-    fb.innerHTML=prev.ok?'<div class="fbtitle">✅ إجابة صحيحة!</div>أحسنت!':`<div class="fbtitle">❌ إجابة خاطئة</div>الإجابة الصحيحة: <strong>${L[q.a]}) ${q.ch[q.a]}</strong>`;
-    document.getElementById('e-next').className='nxtebtn on';
-  } else {
-    exDone=false;fb.className='fbbox';fb.innerHTML='';document.getElementById('e-next').className='nxtebtn';
-  }
-}
-
-function mcAns(ch){
-  if(exDone)return;exDone=true;
-  const q=exArr[exIdx],ok=ch===q.a;
-  const btns=document.querySelectorAll('.cbtn');btns.forEach(b=>b.disabled=true);
-  btns[ch].classList.add(ok?'ok':'no');
-  if(!ok)btns[q.a].classList.add('ok');
-  btns.forEach((b,i)=>{if(i!==ch&&i!==q.a)b.classList.add('dim');});
-  exHist[exIdx]={ch,ok};
-  if(ok){exScore++;document.getElementById('escore').textContent=exScore;document.getElementById('efb').className='fbbox cfb on';document.getElementById('efb').innerHTML='<div class="fbtitle">✅ إجابة صحيحة!</div>أحسنت!';}
-  else{document.getElementById('efb').className='fbbox wfb on';document.getElementById('efb').innerHTML=`<div class="fbtitle">❌ إجابة خاطئة</div>الإجابة الصحيحة: <strong>${L[q.a]}) ${q.ch[q.a]}</strong>`;
-    if(!exWrong.find(w=>w.i===exIdx))exWrong.push({i:exIdx,n:exIdx+1,q:q.q,ct:`${L[ch]}) ${q.ch[ch]}`,at:`${L[q.a]}) ${q.ch[q.a]}`});}
-  document.getElementById('e-next').className='nxtebtn on';
-}
-
-function exNext(){exIdx++;if(exIdx<exArr.length){sec==='tf'?renderTF('fwd'):renderMC('fwd');}else showResult();}
-function exPrev(){if(exIdx<=0)return;exIdx--;sec==='tf'?renderTF('back'):renderMC('back');}
-
-function showResult(){
-  const tot=exArr.length,pct=~~(exScore/tot*100);
-  let col,msg,sub;
-  if(pct>=90){col='#2D9E5F';msg='🏆 ممتاز! أداء رائع!';sub='نتيجة رائعة، استمر!';}
-  else if(pct>=75){col='#E8820C';msg='💪 جيد جداً! كمّل!';sub='قريب من التميز، راجع الأخطاء.';}
-  else if(pct>=60){col='#f0a94a';msg='📚 جيد، بس لازم مراجعة!';sub='في أخطاء محتاج تراجعها.';}
-  else{col='#E84444';msg='📖 محتاج مراجعة أكتر!';sub='راجع الأسئلة الغلط وحاول تاني.';}
-  const c=document.getElementById('rcircle');
-  c.style.setProperty('--c1',col);c.style.setProperty('--pct',pct+'%');
-  document.getElementById('rpct').textContent=pct+'%';document.getElementById('rpct').style.color=col;
-  document.getElementById('rmsg').textContent=msg;document.getElementById('rmsg').style.color=col;
-  document.getElementById('rsub').textContent=sub;
-  document.getElementById('rc').textContent=exScore;
-  document.getElementById('rw').textContent=tot-exScore;
-  document.getElementById('rt').textContent=tot;
-  const rb=document.getElementById('btn-review');
-  rb.style.display=exWrong.length?'block':'none';
-  if(exWrong.length)rb.textContent=`📖 راجع الـ ${exWrong.length} سؤال الغلط`;
-  if(pct>=75)confetti();
-  go('sr');
-}
-
-function showReview(){
-  const list=document.getElementById('vlist');list.innerHTML='';
-  document.getElementById('vcnt').textContent=exWrong.length+' سؤال';
-  exWrong.forEach((it,i)=>{
-    const d=document.createElement('div');d.className='vitm';d.style.animationDelay=(i*.05)+'s';
-    d.innerHTML=`<div class="vnum">السؤال رقم ${it.n}</div><div class="vqtxt">${it.q}</div>
-    <div class="vrow"><span class="vtag twrong">إجابتك</span><span class="vans">${it.ct}</span></div>
-    <div class="vrow"><span class="vtag tcor">الصحيح</span><span class="vans">${it.at}${it.c?'<br><span style="color:#f0a94a;font-size:12px">التصحيح: '+it.c+'</span>':''}</span></div>`;
-    list.appendChild(d);
-  });
-  go('sv');
-}
-
-function confetti(){
-  const cols=['#E8820C','#2D9E5F','#f0a94a','#3ab575','#fff','#ffdd00','#3a8fd4'];
-  for(let i=0;i<60;i++){
-    setTimeout(()=>{
-      const c=document.createElement('div');c.className='cpiece';
-      c.style.left=Math.random()*100+'vw';c.style.background=cols[~~(Math.random()*cols.length)];
-      c.style.transform=`rotate(${Math.random()*360}deg)`;
-      c.style.animationDuration=(2+Math.random()*2)+'s';c.style.animationDelay=(Math.random()*.4)+'s';
-      c.style.width=(6+Math.random()*8)+'px';c.style.height=(10+Math.random()*14)+'px';
-      document.body.appendChild(c);setTimeout(()=>c.remove(),3500);
-    },i*40);
-  }
 }
 </script>
+
 </body>
 </html>
