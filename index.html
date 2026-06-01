@@ -3,386 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تلاوات الشيخ ياسر الدوسري</title>
+<title>تلاوات القرآن الكريم</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --gold: #c9a84c;
   --gold-light: #e8c97a;
-  --gold-dark: #8b6914;
-  --cream: #f5f0e8;
-  --cream-dark: #e8dfc8;
-  --dark: #0d0f14;
-  --dark2: #13161e;
-  --dark3: #1a1e2a;
-  --dark4: #222840;
-  --text-main: #f0e8d4;
-  --text-muted: #9a8f7a;
-  --green: #2d6a4f;
-  --green-light: #52b788;
+  --gold-dim: rgba(201,168,76,0.15);
+  --dark:  #0c0e13;
+  --dark2: #12151d;
+  --dark3: #181c27;
+  --dark4: #1e2333;
+  --text:  #f0e8d4;
+  --muted: #7a7060;
+  --muted2:#a09080;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-body {
-  font-family: 'Cairo', 'Amiri', sans-serif;
-  background: var(--dark);
-  color: var(--text-main);
-  min-height: 100vh;
-  overflow-x: hidden;
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--dark);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-/* ─── Background pattern ─── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
+/* geometric bg */
+body::before{
+  content:'';
+  position:fixed; inset:0;
   background-image:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.08) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
+    radial-gradient(ellipse 100% 50% at 50% -5%, rgba(201,168,76,0.07) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='%23c9a84c' stroke-opacity='0.025' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0;
 }
 
-/* ─── Header ─── */
-header {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 60px 20px 40px;
-  border-bottom: 1px solid rgba(201,168,76,0.2);
+/* ── Header ── */
+header{
+  position:relative; z-index:1;
+  text-align:center;
+  padding:56px 20px 36px;
+  border-bottom:1px solid rgba(201,168,76,0.18);
+}
+.bismillah{
+  font-family:'Amiri Quran',serif;
+  font-size:clamp(26px,5vw,44px);
+  color:var(--gold);
+  letter-spacing:3px;
+  margin-bottom:18px;
+  text-shadow:0 0 50px rgba(201,168,76,0.25);
+}
+.ornament{
+  display:flex; align-items:center; justify-content:center;
+  gap:14px; margin-bottom:18px;
+}
+.orn-line{ height:1px; width:70px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.orn-diamond{ width:7px; height:7px; background:var(--gold); transform:rotate(45deg); }
+header h1{ font-size:clamp(18px,3.5vw,28px); font-weight:700; color:var(--text); margin-bottom:6px; }
+header h1 span{ color:var(--gold); }
+header p{ font-family:'Amiri',serif; font-size:15px; color:var(--muted2); line-height:1.9; }
+
+/* ── Layout ── */
+.container{
+  position:relative; z-index:1;
+  max-width:1320px; margin:0 auto;
+  padding:40px 24px 80px;
 }
 
-.bismillah {
-  font-family: 'Amiri Quran', serif;
-  font-size: clamp(28px, 5vw, 42px);
-  color: var(--gold);
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 40px rgba(201,168,76,0.3);
+/* ── Sheikh Tabs ── */
+.tabs-wrap{
+  display:flex; gap:10px; flex-wrap:wrap;
+  margin-bottom:36px;
+  border-bottom:1px solid rgba(201,168,76,0.12);
+  padding-bottom:16px;
+}
+.tab{
+  display:flex; align-items:center; gap:8px;
+  padding:10px 20px;
+  border:1px solid rgba(201,168,76,0.18);
+  border-radius:40px;
+  cursor:pointer;
+  background:var(--dark2);
+  color:var(--muted2);
+  font-size:14px;
+  font-family:'Cairo',sans-serif;
+  font-weight:600;
+  transition:all .25s;
+  user-select:none;
+}
+.tab:hover{
+  border-color:rgba(201,168,76,0.4);
+  color:var(--gold-light);
+  background:var(--dark3);
+}
+.tab.active{
+  background:linear-gradient(135deg,rgba(201,168,76,0.18),rgba(201,168,76,0.06));
+  border-color:var(--gold);
+  color:var(--gold);
+  box-shadow:0 0 20px rgba(201,168,76,0.1);
+}
+.tab-dot{
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--muted);
+  transition:background .25s;
+  flex-shrink:0;
+}
+.tab.active .tab-dot{ background:var(--gold); }
+
+/* ── Player ── */
+.player-section{
+  background:var(--dark2);
+  border:1px solid rgba(201,168,76,0.22);
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:40px;
+  box-shadow:0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.06);
+}
+.player-header{
+  padding:20px 26px 16px;
+  background:linear-gradient(180deg,rgba(201,168,76,0.07),transparent);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+  display:flex; align-items:center; gap:14px;
+}
+.player-icon{
+  width:40px; height:40px; flex-shrink:0;
+  background:rgba(201,168,76,0.1);
+  border:1px solid rgba(201,168,76,0.28);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.player-icon svg{ width:18px; height:18px; fill:var(--gold); }
+.now-label{ font-size:10px; color:var(--gold); letter-spacing:2.5px; font-weight:700; margin-bottom:4px; }
+#playerTitle{ font-family:'Amiri',serif; font-size:17px; color:var(--text); font-weight:700; }
+.player-frame{ width:100%; aspect-ratio:16/9; }
+.player-frame iframe{ width:100%; height:100%; border:none; display:block; }
+
+/* ── Section bar ── */
+.section-bar{
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:24px;
+}
+.section-bar h2{ font-family:'Amiri',serif; font-size:20px; color:var(--gold); font-weight:700; white-space:nowrap; }
+.section-bar-line{ flex:1; height:1px; background:linear-gradient(90deg,rgba(201,168,76,0.35),transparent); }
+.section-badge{
+  font-size:12px; color:var(--muted2);
+  background:rgba(201,168,76,0.07);
+  border:1px solid rgba(201,168,76,0.14);
+  padding:3px 12px; border-radius:20px;
+  white-space:nowrap;
 }
 
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 16px;
+/* ── Panel ── */
+.panel{ display:none; }
+.panel.active{ display:block; animation:fadeIn .35s ease; }
+@keyframes fadeIn{ from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── Playlist embed ── */
+.playlist-wrap{
+  background:var(--dark2);
+  border:1px solid rgba(201,168,76,0.18);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 16px 48px rgba(0,0,0,0.4);
+}
+.playlist-wrap iframe{
+  width:100%;
+  height:520px;
+  border:none;
+  display:block;
 }
 
-.ornament-line {
-  height: 1px;
-  width: 80px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+/* ── Info card under playlist ── */
+.info-card{
+  margin-top:20px;
+  background:var(--dark2);
+  border:1px solid rgba(201,168,76,0.12);
+  border-radius:14px;
+  padding:20px 24px;
+  display:flex; align-items:center; gap:16px;
 }
+.info-icon{ font-size:26px; flex-shrink:0; }
+.info-text h3{ font-size:16px; color:var(--gold); font-weight:700; margin-bottom:4px; }
+.info-text p{ font-size:13px; color:var(--muted2); line-height:1.7; }
 
-.ornament-diamond {
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  transform: rotate(45deg);
+/* ── Footer ── */
+footer{
+  position:relative; z-index:1;
+  text-align:center;
+  padding:36px 20px;
+  border-top:1px solid rgba(201,168,76,0.1);
 }
-
-header h1 {
-  font-family: 'Cairo', sans-serif;
-  font-size: clamp(20px, 4vw, 30px);
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 10px;
+.footer-dua{
+  font-family:'Amiri Quran',serif;
+  font-size:19px; color:var(--gold);
+  margin-bottom:10px;
+  text-shadow:0 0 30px rgba(201,168,76,0.2);
 }
+footer p{ font-size:13px; color:var(--muted); }
 
-header h1 span {
-  color: var(--gold);
-}
-
-header p {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.9;
-  font-family: 'Amiri', serif;
-}
-
-/* ─── Container ─── */
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px 24px 60px;
-}
-
-/* ─── Player Section ─── */
-.player-section {
-  background: var(--dark2);
-  border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 50px;
-  box-shadow:
-    0 0 0 1px rgba(201,168,76,0.08),
-    0 20px 60px rgba(0,0,0,0.5),
-    0 0 80px rgba(201,168,76,0.05);
-}
-
-.player-header {
-  padding: 22px 28px 18px;
-  background: linear-gradient(180deg, rgba(201,168,76,0.07) 0%, transparent 100%);
-  border-bottom: 1px solid rgba(201,168,76,0.15);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.player-icon {
-  width: 42px;
-  height: 42px;
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.player-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--gold);
-}
-
-.player-info {
-  flex: 1;
-}
-
-.now-playing-label {
-  font-size: 11px;
-  color: var(--gold);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-#videoTitle {
-  font-family: 'Amiri', serif;
-  font-size: 18px;
-  color: var(--text-main);
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.player-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-}
-
-.player-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-/* ─── Section Title ─── */
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
-}
-
-.section-title h2 {
-  font-family: 'Amiri', serif;
-  font-size: 22px;
-  color: var(--gold);
-  font-weight: 700;
-}
-
-.section-title-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent);
-}
-
-.section-count {
-  font-size: 13px;
-  color: var(--text-muted);
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.15);
-  padding: 4px 12px;
-  border-radius: 20px;
-}
-
-/* ─── Cards Grid ─── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 16px;
-}
-
-.card {
-  background: var(--dark2);
-  border: 1px solid rgba(201,168,76,0.12);
-  border-radius: 14px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 60px; height: 60px;
-  background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent 70%);
-  pointer-events: none;
-}
-
-.card:hover {
-  border-color: rgba(201,168,76,0.45);
-  background: var(--dark3);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.15);
-}
-
-.card.active {
-  border-color: var(--gold);
-  background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
-  box-shadow: 0 0 0 1px rgba(201,168,76,0.3), 0 8px 24px rgba(0,0,0,0.3);
-}
-
-.card-number {
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-bottom: 10px;
-  font-family: 'Cairo', sans-serif;
-}
-
-.card.active .card-number { color: var(--gold); }
-
-.card-play-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  float: left;
-  margin: 0 0 10px 10px;
-  transition: all 0.3s;
-  flex-shrink: 0;
-}
-
-.card:hover .card-play-btn,
-.card.active .card-play-btn {
-  background: var(--gold);
-  border-color: var(--gold);
-}
-
-.card-play-btn svg {
-  width: 14px;
-  height: 14px;
-  fill: var(--gold);
-  transition: fill 0.3s;
-  margin-right: -2px;
-}
-
-.card:hover .card-play-btn svg,
-.card.active .card-play-btn svg {
-  fill: var(--dark);
-}
-
-.card-top {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.card-text { flex: 1; }
-
-.card h3 {
-  font-family: 'Amiri', serif;
-  font-size: 16px;
-  color: var(--text-main);
-  font-weight: 700;
-  line-height: 1.5;
-  margin-bottom: 5px;
-}
-
-.card.active h3 { color: var(--gold-light); }
-
-.card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.card-divider {
-  height: 1px;
-  background: rgba(201,168,76,0.08);
-  margin: 12px 0;
-}
-
-.card-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: var(--gold-dark);
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.15);
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-
-/* ─── Footer ─── */
-footer {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 40px 20px;
-  border-top: 1px solid rgba(201,168,76,0.12);
-}
-
-.footer-dua {
-  font-family: 'Amiri Quran', serif;
-  font-size: 18px;
-  color: var(--gold);
-  margin-bottom: 12px;
-  text-shadow: 0 0 30px rgba(201,168,76,0.2);
-}
-
-footer p {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-/* ─── Responsive ─── */
-@media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr 1fr; }
-  header { padding: 40px 16px 30px; }
-  .container { padding: 24px 16px 40px; }
-}
-
-@media (max-width: 420px) {
-  .grid { grid-template-columns: 1fr; }
-}
-
-/* ─── Scroll & animations ─── */
-.card {
-  animation: fadeUp 0.4s ease both;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+@media(max-width:600px){
+  .tabs-wrap{ gap:7px; }
+  .tab{ padding:8px 14px; font-size:13px; }
+  .playlist-wrap iframe{ height:380px; }
+  header{ padding:36px 16px 26px; }
+  .container{ padding:24px 14px 60px; }
 }
 </style>
 </head>
@@ -391,340 +217,152 @@ footer p {
 <header>
   <div class="bismillah">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</div>
   <div class="ornament">
-    <div class="ornament-line"></div>
-    <div class="ornament-diamond"></div>
-    <div class="ornament-line" style="transform:scaleX(-1)"></div>
+    <div class="orn-line"></div>
+    <div class="orn-diamond"></div>
+    <div class="orn-line" style="transform:scaleX(-1)"></div>
   </div>
-  <h1>تلاوات مختارة للشيخ <span>ياسر الدوسري</span></h1>
-  <p>مجموعة من التلاوات المؤثرة والخاشعة التي أحبها وأحب مشاركتها</p>
+  <h1>تلاوات <span>القرآن الكريم</span></h1>
+  <p>مجموعة مختارة من أجمل التلاوات لنخبة من القراء</p>
 </header>
 
 <div class="container">
 
-  <!-- Player -->
-  <div class="player-section">
-    <div class="player-header">
-      <div class="player-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-      </div>
-      <div class="player-info">
-        <div class="now-playing-label">يُشغّل الآن</div>
-        <div id="videoTitle">سورة القيامة — من أجمل التلاوات إلى قلبي</div>
-      </div>
+  <!-- Tabs -->
+  <div class="tabs-wrap" role="tablist">
+    <div class="tab active" role="tab" onclick="showSheikh(0)" id="tab0">
+      <div class="tab-dot"></div>الشيخ ياسر الدوسري
     </div>
-    <div class="player-frame">
-      <iframe id="player"
-        src="https://www.youtube.com/embed/GhET5RHUwJg?autoplay=0&rel=0&modestbranding=1"
-        allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-      </iframe>
+    <div class="tab" role="tab" onclick="showSheikh(1)" id="tab1">
+      <div class="tab-dot"></div>الشيخ محمد صديق المنشاوي
+    </div>
+    <div class="tab" role="tab" onclick="showSheikh(2)" id="tab2">
+      <div class="tab-dot"></div>الشيخ أحمد العجمي
+    </div>
+    <div class="tab" role="tab" onclick="showSheikh(3)" id="tab3">
+      <div class="tab-dot"></div>الشيخ السيد سعيد
+    </div>
+    <div class="tab" role="tab" onclick="showSheikh(4)" id="tab4">
+      <div class="tab-dot"></div>الشيخ محمد اللحيدان
     </div>
   </div>
 
-  <!-- Grid -->
-  <div class="section-title">
-    <h2>قائمة التلاوات</h2>
-    <div class="section-title-line"></div>
-    <div class="section-count">٢١ تلاوة</div>
+  <!-- Panel 0: ياسر الدوسري -->
+  <div class="panel active" id="panel0">
+    <div class="section-bar">
+      <h2>الشيخ ياسر الدوسري</h2>
+      <div class="section-bar-line"></div>
+      <div class="section-badge">قائمة التشغيل</div>
+    </div>
+    <div class="playlist-wrap">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLk4Z9ZC9KDEw-WfmDh2qrXfPmb0JNLIXW&rel=0&modestbranding=1"
+        allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📖</div>
+      <div class="info-text">
+        <h3>الشيخ ياسر الدوسري</h3>
+        <p>إمام المسجد الحرام بمكة المكرمة — تلاوات مؤثرة وخاشعة. اضغط على أي تلاوة في القائمة لتشغيلها مباشرة.</p>
+      </div>
+    </div>
   </div>
 
-  <div class="grid" id="cardGrid">
-
-    <div class="card active" onclick="playVideo(this,'GhET5RHUwJg','سورة القيامة — من أجمل التلاوات إلى قلبي')">
-      <div class="card-number">٠١</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>سورة القيامة</h3>
-          <p>من أجمل التلاوات إلى قلبي</p>
-        </div>
+  <!-- Panel 1: المنشاوي -->
+  <div class="panel" id="panel1">
+    <div class="section-bar">
+      <h2>الشيخ محمد صديق المنشاوي</h2>
+      <div class="section-bar-line"></div>
+      <div class="section-badge">قائمة التشغيل</div>
+    </div>
+    <div class="playlist-wrap">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLk4Z9ZC9KDEw93rRaQFreE8oiKtD4FigD&rel=0&modestbranding=1"
+        allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🎙️</div>
+      <div class="info-text">
+        <h3>الشيخ محمد صديق المنشاوي</h3>
+        <p>من أعظم قراء القرآن الكريم في التاريخ — صوت لا يُنسى يجمع بين الخشوع والجمال.</p>
       </div>
     </div>
-
-    <div class="card" onclick="playVideo(this,'0sVi9bnI5-U','وبرزوا لله الواحد القهار')">
-      <div class="card-number">٠٢</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>وبرزوا لله الواحد القهار</h3>
-          <p>تلاوة مؤثرة</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'9hNvJDGb_z4','سورة يوسف — قال إنما أشكو بثي وحزني إلى الله')">
-      <div class="card-number">٠٣</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>سورة يوسف</h3>
-          <p>السورة المفضلة لي</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'QYkNL8jPRQc','وبشر الصابرين')">
-      <div class="card-number">٠٤</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>وبشر الصابرين</h3>
-          <p>تلاوة رائعة</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'wOXndBDNILs','ونادى أصحاب النار')">
-      <div class="card-number">٠٥</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>ونادى أصحاب النار</h3>
-          <p>تلاوة مؤثرة جداً</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'1OEAkSq6fug','بديع السماوات والأرض')">
-      <div class="card-number">٠٦</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>بديع السماوات والأرض</h3>
-          <p>تلاوة عراقية تاريخية</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'2WXG175vGBU','أإله مع الله')">
-      <div class="card-number">٠٧</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>أإله مع الله</h3>
-          <p>عيش أجمل اللحظات</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'ikvUTTW7ZpU','التائبون العابدون')">
-      <div class="card-number">٠٨</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>التائبون العابدون</h3>
-          <p>تلاوة عراقية رائعة</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'D1mFh3NghZo','أن يا موسى إني أنا الله رب العالمين')">
-      <div class="card-number">٠٩</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>أن يا موسى</h3>
-          <p>إني أنا الله رب العالمين</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'PXuUaxbiaYM','كلا إذا بلغت التراقي')">
-      <div class="card-number">١٠</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>كلا إذا بلغت التراقي</h3>
-          <p>تلاوة خاشعة</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'bT_8mDFMv3k','يعدهم ويمنيهم')">
-      <div class="card-number">١١</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>يعدهم ويمنيهم</h3>
-          <p>تدبر وتأمل</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'KChE3fKdF_U','إن تعذبهم فإنهم عبادك')">
-      <div class="card-number">١٢</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>إن تعذبهم فإنهم عبادك</h3>
-          <p>تلاوة خاشعة</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'Er1504lexsQ','فنادته الملائكة — بشارة يحيى عليه السلام')">
-      <div class="card-number">١٣</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>فنادته الملائكة</h3>
-          <p>بشارة يحيى عليه السلام</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'cG17cHiEzSE','أمن يجيب المضطر — معرفة الله وقدرته')">
-      <div class="card-number">١٤</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>أمن يجيب المضطر</h3>
-          <p>معرفة الله وقدرته</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'06RjC_y4je0','يوم نطوي السماء كطي السجل للكتب')">
-      <div class="card-number">١٥</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>يوم نطوي السماء</h3>
-          <p>قدرة الله على إعادة الخلق</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'zQTYXCPmYKk','وقضى ربك ألا تعبدوا إلا إياه — وبالوالدين إحساناً')">
-      <div class="card-number">١٦</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>وقضى ربك</h3>
-          <p>وبالوالدين إحساناً</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'evKSMMWWito','وكذلك أخذ ربك إذا أخذ القرى وهي ظالمة')">
-      <div class="card-number">١٧</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>وكذلك أخذ ربك</h3>
-          <p>إذا أخذ القرى وهي ظالمة</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'I7p5AHLA89U','إن المنافقين')">
-      <div class="card-number">١٨</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>إن المنافقين</h3>
-          <p>بأسلوبه المؤثر</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'6i90UlAPNKc','وجاءت سكرة الموت بالحق')">
-      <div class="card-number">١٩</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>وجاءت سكرة الموت</h3>
-          <p>تلاوة قديمة ومبكية</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'H-t2nt9wAMg','ولقد كرمنا بني آدم')">
-      <div class="card-number">٢٠</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>ولقد كرمنا بني آدم</h3>
-          <p>تلاوة مؤثرة جداً</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="playVideo(this,'YBtBQUseLfE','ويوم يعض الظالم على يديه — صلاة العشاء')">
-      <div class="card-number">٢١</div>
-      <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>ويوم يعض الظالم</h3>
-          <p>صلاة العشاء</p>
-        </div>
-      </div>
-    </div>
-
   </div>
-</div>
+
+  <!-- Panel 2: العجمي -->
+  <div class="panel" id="panel2">
+    <div class="section-bar">
+      <h2>الشيخ أحمد العجمي</h2>
+      <div class="section-bar-line"></div>
+      <div class="section-badge">قائمة التشغيل</div>
+    </div>
+    <div class="playlist-wrap">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLk4Z9ZC9KDEybBv3MaF4-9diXbzmFAR8I&rel=0&modestbranding=1"
+        allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">✨</div>
+      <div class="info-text">
+        <h3>الشيخ أحمد العجمي</h3>
+        <p>قارئ سعودي متميز بصوته العذب وأدائه الرائع — تلاوات تصل إلى القلب مباشرة.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 3: السيد سعيد -->
+  <div class="panel" id="panel3">
+    <div class="section-bar">
+      <h2>الشيخ السيد سعيد</h2>
+      <div class="section-bar-line"></div>
+      <div class="section-badge">قائمة التشغيل</div>
+    </div>
+    <div class="playlist-wrap">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLk4Z9ZC9KDEwueXfJ3q8POw2wnFH7s3gh&rel=0&modestbranding=1"
+        allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🌙</div>
+      <div class="info-text">
+        <h3>الشيخ السيد سعيد</h3>
+        <p>قارئ مصري بصوت دافئ ومميز — تلاوات تجمع بين الأصالة والخشوع.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 4: اللحيدان -->
+  <div class="panel" id="panel4">
+    <div class="section-bar">
+      <h2>الشيخ محمد اللحيدان</h2>
+      <div class="section-bar-line"></div>
+      <div class="section-badge">قائمة التشغيل</div>
+    </div>
+    <div class="playlist-wrap">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLk4Z9ZC9KDEwQdmKXpY_PlqRd9oldXYvW&rel=0&modestbranding=1"
+        allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">⭐</div>
+      <div class="info-text">
+        <h3>الشيخ محمد اللحيدان</h3>
+        <p>قارئ سعودي بصوت هادئ وعميق — تلاوات مليئة بالتدبر والخشوع.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
 
 <footer>
   <div class="footer-dua">اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا وَنُورَ صُدُورِنَا</div>
-  <p>جمعها بمحبة للقرآن الكريم وأهله 🤍</p>
+  <p>جُمعت بمحبة للقرآن الكريم وأهله 🤍</p>
 </footer>
 
 <script>
-function playVideo(card, id, title) {
-  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-  card.classList.add('active');
-  document.getElementById('player').src =
-    'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-  document.getElementById('videoTitle').textContent = title;
+const COUNT = 5;
+
+function showSheikh(idx) {
+  for (let i = 0; i < COUNT; i++) {
+    document.getElementById('tab' + i).classList.toggle('active', i === idx);
+    document.getElementById('panel' + i).classList.toggle('active', i === idx);
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// Staggered animation for cards
-document.querySelectorAll('.card').forEach((card, i) => {
-  card.style.animationDelay = (i * 0.05) + 's';
-});
 </script>
-
 </body>
 </html>
