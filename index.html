@@ -2,274 +2,390 @@
 <html lang="ar" dir="rtl">
 <head>
   <link rel="icon" type="image/png" href="logo_512_transparent.png">
-<link rel="shortcut icon" href="logo_512_transparent.png">
-<link rel="apple-touch-icon" href="logo_512_transparent.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تلاوات القرآن الكريم</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
-  --gold-dark: #8b6914;
-  --dark: #0d0f14;
-  --dark2: #13161e;
-  --dark3: #1a1e2a;
-  --text-main: #f0e8d4;
-  --text-muted: #9a8f7a;
-}
+  <link rel="shortcut icon" href="logo_512_transparent.png">
+  <link rel="apple-touch-icon" href="logo_512_transparent.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تلاوات القرآن الكريم</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Reem+Kufi&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8b6914;
+    --dark: #0d0f14;
+    --dark2: #13161e;
+    --dark3: #1a1e2a;
+    --text-main: #f0e8d4;
+    --text-muted: #9a8f7a;
+  }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  font-family: 'Cairo', 'Amiri', sans-serif;
-  background: var(--dark);
-  color: var(--text-main);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+  body {
+    font-family: 'Cairo', 'Amiri', sans-serif;
+    background: var(--dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.08) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
 
-header {
-  position: relative; z-index: 1;
-  text-align: center;
-  padding: 60px 20px 40px;
-  border-bottom: 2px solid rgba(201,168,76,0.2);
-}
+  /* ══ اسم مصطفى جيمي ══ */
+  .brand-name {
+    position: fixed;
+    top: 16px;
+    left: 20px;
+    z-index: 999;
+    font-family: 'Reem Kufi', serif;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(201,168,76,0.5);
+    background: rgba(13,15,20,0.7);
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid rgba(201,168,76,0.25);
+    backdrop-filter: blur(8px);
+    cursor: default;
+    animation: brandFloat 3s ease-in-out infinite, brandGlow 2s ease-in-out infinite alternate;
+  }
 
-.bismillah {
-  font-family: 'Amiri Quran', serif;
-  font-size: clamp(28px, 5vw, 42px);
-  color: var(--gold);
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  text-shadow: 0 0 40px rgba(201,168,76,0.3);
-}
+  @keyframes brandFloat {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-5px); }
+  }
+  @keyframes brandGlow {
+    from { text-shadow: 0 0 10px rgba(201,168,76,0.3), 0 0 20px rgba(201,168,76,0.1); }
+    to   { text-shadow: 0 0 20px rgba(201,168,76,0.8), 0 0 40px rgba(201,168,76,0.3); }
+  }
 
-.ornament {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px; margin-bottom: 16px;
-}
-.ornament-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-.ornament-diamond { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+  /* ══ أيقونات التواصل ══ */
+  .social-bar {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    display: flex;
+    gap: 14px;
+    background: rgba(13,15,20,0.85);
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(201,168,76,0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
 
-header h1 { font-size: clamp(20px, 4vw, 30px); font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
-header h1 span { color: var(--gold); }
-header p { font-size: 15px; color: var(--text-muted); line-height: 1.9; font-family: 'Amiri', serif; }
+  .social-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .social-btn:hover { transform: translateY(-4px) scale(1.1); }
+  .social-btn svg { width: 22px; height: 22px; }
 
-/* ── Sheikh Tabs ── */
-.sheikh-tabs {
-  position: relative; z-index: 1;
-  display: flex; gap: 0;
-  overflow-x: auto;
-  background: var(--dark2);
-  border-bottom: 2px solid rgba(201,168,76,0.2);
-  padding: 0 20px;
-  scrollbar-width: none;
-}
-.sheikh-tabs::-webkit-scrollbar { display: none; }
+  .social-btn.facebook { background: #1877f2; }
+  .social-btn.facebook:hover { background: #2d8cf0; box-shadow: 0 6px 20px rgba(24,119,242,0.5); }
 
-.sheikh-tab {
-  display: flex; align-items: center; gap: 8px;
-  padding: 18px 24px;
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: 15px;
-  font-weight: 600;
-  white-space: nowrap;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: all .25s;
-  user-select: none;
-  flex-shrink: 0;
-}
-.sheikh-tab:hover { color: var(--gold-light); }
-.sheikh-tab.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-.sheikh-tab .dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--text-muted);
-  transition: background .25s;
-  flex-shrink: 0;
-}
-.sheikh-tab.active .dot { background: var(--gold); }
+  .social-btn.whatsapp { background: #25d366; }
+  .social-btn.whatsapp:hover { background: #20bd5a; box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
 
-/* ── Container ── */
-.container {
-  position: relative; z-index: 1;
-  max-width: 1280px;
-  margin: auto;
-  padding: 40px 24px 60px;
-}
+  /* ══ المؤقت ══ */
+  .timer-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.35);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .timer-btn:hover { background: rgba(201,168,76,0.25); transform: translateY(-4px) scale(1.1); box-shadow: 0 6px 20px rgba(201,168,76,0.3); }
+  .timer-btn svg { width: 22px; height: 22px; fill: var(--gold); }
+  .timer-btn.active { background: rgba(201,168,76,0.3); border-color: var(--gold); animation: timerPulse 1s ease-in-out infinite; }
+  @keyframes timerPulse { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4)} 50%{box-shadow:0 0 0 8px rgba(201,168,76,0)} }
 
-/* ── Player ── */
-.player-section {
-  background: var(--dark2);
-  border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 50px;
-  box-shadow: 0 0 0 1px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.5);
-}
+  /* ══ Timer Panel ══ */
+  .timer-panel {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    z-index: 1000;
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 18px;
+    padding: 22px 24px;
+    width: 280px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s;
+  }
+  .timer-panel.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) scale(1);
+  }
+  .timer-panel h4 {
+    font-family: 'Amiri', serif;
+    color: var(--gold);
+    font-size: 16px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .timer-display {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+    font-family: monospace;
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+  }
+  .timer-inputs {
+    display: flex; gap: 8px; margin-bottom: 14px; align-items: center;
+  }
+  .timer-inputs input {
+    flex: 1;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--text-main);
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .timer-inputs input:focus { border-color: var(--gold); }
+  .timer-inputs label { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+  .timer-btns { display: flex; gap: 8px; }
+  .timer-btns button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all .25s;
+  }
+  .btn-start { background: var(--gold); color: var(--dark); }
+  .btn-start:hover { background: var(--gold-light); }
+  .btn-stop { background: rgba(255,80,80,0.15); color: #ff6060; border: 1px solid rgba(255,80,80,0.3); }
+  .btn-stop:hover { background: rgba(255,80,80,0.25); }
 
-.player-header {
-  padding: 22px 28px 18px;
-  background: linear-gradient(180deg, rgba(201,168,76,0.07) 0%, transparent 100%);
-  border-bottom: 1px solid rgba(201,168,76,0.15);
-  display: flex; align-items: center; gap: 14px;
-}
-.player-icon {
-  width: 42px; height: 42px;
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.player-icon svg { width: 20px; height: 20px; fill: var(--gold); }
-.now-playing-label { font-size: 11px; color: var(--gold); letter-spacing: 2px; font-weight: 600; margin-bottom: 4px; }
-#videoTitle { font-family: 'Amiri', serif; font-size: 18px; color: var(--text-main); font-weight: 700; line-height: 1.4; }
+  /* ══ Header ══ */
+  header {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 60px 20px 40px;
+    border-bottom: 2px solid rgba(201,168,76,0.2);
+  }
+  .bismillah {
+    font-family: 'Amiri Quran', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+  }
+  .ornament { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 16px; }
+  .ornament-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .ornament-diamond { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+  header h1 { font-size: clamp(20px, 4vw, 30px); font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
+  header h1 span { color: var(--gold); }
+  header p { font-size: 15px; color: var(--text-muted); line-height: 1.9; font-family: 'Amiri', serif; }
 
-.player-frame { width: 100%; aspect-ratio: 16/9; }
-.player-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+  /* ══ Tabs ══ */
+  .sheikh-tabs {
+    position: relative; z-index: 1;
+    display: flex; gap: 0;
+    overflow-x: auto;
+    background: var(--dark2);
+    border-bottom: 2px solid rgba(201,168,76,0.2);
+    padding: 0 20px;
+    scrollbar-width: none;
+  }
+  .sheikh-tabs::-webkit-scrollbar { display: none; }
+  .sheikh-tab {
+    display: flex; align-items: center; gap: 8px;
+    padding: 18px 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 15px; font-weight: 600;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all .25s;
+    user-select: none; flex-shrink: 0;
+  }
+  .sheikh-tab:hover { color: var(--gold-light); }
+  .sheikh-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .sheikh-tab .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); transition: background .25s; flex-shrink: 0; }
+  .sheikh-tab.active .dot { background: var(--gold); }
 
-/* ── Section title ── */
-.section-title {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 28px;
-}
-.section-title h2 { font-family: 'Amiri', serif; font-size: 22px; color: var(--gold); font-weight: 700; }
-.section-title-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent); }
-.section-count {
-  font-size: 13px; color: var(--text-muted);
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.15);
-  padding: 4px 12px; border-radius: 20px;
-}
+  /* ══ Container ══ */
+  .container {
+    position: relative; z-index: 1;
+    max-width: 1280px; margin: auto;
+    padding: 40px 24px 120px;
+  }
 
-/* ── Cards ── */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 16px;
-}
+  /* ══ Player ══ */
+  .player-section {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 20px; overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .player-header {
+    padding: 22px 28px 18px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.07) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .player-icon {
+    width: 42px; height: 42px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .player-icon svg { width: 20px; height: 20px; fill: var(--gold); }
+  .now-playing-label { font-size: 11px; color: var(--gold); letter-spacing: 2px; font-weight: 600; margin-bottom: 4px; }
+  #videoTitle { font-family: 'Amiri', serif; font-size: 18px; color: var(--text-main); font-weight: 700; line-height: 1.4; }
 
-.card {
-  background: var(--dark2);
-  border: 1px solid rgba(201,168,76,0.12);
-  border-radius: 14px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  animation: fadeUp 0.4s ease both;
-}
-.card::before {
-  content: '';
-  position: absolute; top: 0; right: 0;
-  width: 60px; height: 60px;
-  background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent 70%);
-  pointer-events: none;
-}
-.card:hover {
-  border-color: rgba(201,168,76,0.45);
-  background: var(--dark3);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.15);
-}
-.card.active {
-  border-color: var(--gold);
-  background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
-  box-shadow: 0 0 0 1px rgba(201,168,76,0.3), 0 8px 24px rgba(0,0,0,0.3);
-}
+  .player-frame { width: 100%; aspect-ratio: 16/9; }
+  .player-frame iframe { width: 100%; height: 100%; border: none; display: block; }
 
-.card-number { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
-.card.active .card-number { color: var(--gold); }
+  /* ══ Section title ══ */
+  .section-title { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .section-title h2 { font-family: 'Amiri', serif; font-size: 22px; color: var(--gold); font-weight: 700; }
+  .section-title-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent); }
+  .section-count { font-size: 13px; color: var(--text-muted); background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); padding: 4px 12px; border-radius: 20px; }
 
-.card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
-.card-text { flex: 1; }
+  /* ══ Cards ══ */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
 
-.card-play-btn {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.25);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s;
-}
-.card:hover .card-play-btn, .card.active .card-play-btn {
-  background: var(--gold); border-color: var(--gold);
-}
-.card-play-btn svg { width: 14px; height: 14px; fill: var(--gold); transition: fill 0.3s; margin-right: -2px; }
-.card:hover .card-play-btn svg, .card.active .card-play-btn svg { fill: var(--dark); }
+  .card {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 14px; padding: 20px;
+    cursor: pointer; transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.4s ease both;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent 70%);
+    pointer-events: none;
+  }
+  .card:hover { border-color: rgba(201,168,76,0.45); background: var(--dark3); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.15); }
+  .card.active { border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03)); box-shadow: 0 0 0 1px rgba(201,168,76,0.3), 0 8px 24px rgba(0,0,0,0.3); }
+  .card-number { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
+  .card.active .card-number { color: var(--gold); }
+  .card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+  .card-text { flex: 1; }
+  .card-play-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.3s;
+  }
+  .card:hover .card-play-btn, .card.active .card-play-btn { background: var(--gold); border-color: var(--gold); }
+  .card-play-btn svg { width: 14px; height: 14px; fill: var(--gold); transition: fill 0.3s; margin-right: -2px; }
+  .card:hover .card-play-btn svg, .card.active .card-play-btn svg { fill: var(--dark); }
+  .card h3 { font-family: 'Amiri', serif; font-size: 16px; color: var(--text-main); font-weight: 700; line-height: 1.5; margin-bottom: 5px; }
+  .card.active h3 { color: var(--gold-light); }
+  .card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-.card h3 { font-family: 'Amiri', serif; font-size: 16px; color: var(--text-main); font-weight: 700; line-height: 1.5; margin-bottom: 5px; }
-.card.active h3 { color: var(--gold-light); }
-.card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+  .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
+  .empty-state h3 { font-family: 'Amiri', serif; font-size: 20px; color: var(--gold); margin-bottom: 10px; }
+  .empty-state p { font-size: 14px; line-height: 1.8; }
+  .empty-state code { display: inline-block; margin-top: 12px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); color: var(--gold-light); padding: 8px 16px; border-radius: 8px; font-size: 13px; direction: ltr; font-family: monospace; }
 
-/* ── Empty state ── */
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-muted);
-}
-.empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
-.empty-state h3 { font-family: 'Amiri', serif; font-size: 20px; color: var(--gold); margin-bottom: 10px; }
-.empty-state p { font-size: 14px; line-height: 1.8; }
-.empty-state code {
-  display: inline-block;
-  margin-top: 12px;
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.2);
-  color: var(--gold-light);
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 13px;
-  direction: ltr;
-  font-family: monospace;
-}
+  footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; border-top: 1px solid rgba(201,168,76,0.12); }
+  .footer-dua { font-family: 'Amiri Quran', serif; font-size: 18px; color: var(--gold); margin-bottom: 12px; text-shadow: 0 0 30px rgba(201,168,76,0.2); }
+  footer p { font-size: 13px; color: var(--text-muted); }
 
-footer {
-  position: relative; z-index: 1;
-  text-align: center;
-  padding: 40px 20px;
-  border-top: 1px solid rgba(201,168,76,0.12);
-}
-.footer-dua { font-family: 'Amiri Quran', serif; font-size: 18px; color: var(--gold); margin-bottom: 12px; text-shadow: 0 0 30px rgba(201,168,76,0.2); }
-footer p { font-size: 13px; color: var(--text-muted); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr 1fr; }
-  .container { padding: 24px 16px 40px; }
-  .sheikh-tab { padding: 14px 16px; font-size: 13px; }
-}
-@media (max-width: 420px) {
-  .grid { grid-template-columns: 1fr; }
-}
-</style>
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 24px 16px 120px; }
+    .sheikh-tab { padding: 14px 16px; font-size: 13px; }
+    .brand-name { font-size: 17px; top: 12px; left: 12px; padding: 5px 11px; }
+  }
+  @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
+
+<!-- اسم مصطفى جيمي متحرك -->
+<div class="brand-name">مصطفى جيمي</div>
+
+<!-- أيقونات التواصل + المؤقت -->
+<div class="social-bar">
+  <!-- فيسبوك — ضع رابطك هنا -->
+  <a class="social-btn facebook" href="https://www.facebook.com/gemy5551" target="_blank" title="فيسبوك">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+  </a>
+
+  <!-- واتساب — ضع رقمك هنا -->
+  <a class="social-btn whatsapp" href="https://wa.me/20236751961" target="_blank" title="واتساب">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- المؤقت -->
+  <div class="timer-btn" id="timerBtn" onclick="toggleTimerPanel()" title="مؤقت النوم">
+    <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9a8.985 8.985 0 00-2.97-6.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+  </div>
+</div>
+
+<!-- لوحة المؤقت -->
+<div class="timer-panel" id="timerPanel">
+  <h4>⏱ مؤقت النوم</h4>
+  <div class="timer-display" id="timerDisplay">00:00</div>
+  <div class="timer-inputs">
+    <div style="flex:1;text-align:center">
+      <label>ساعات</label><br>
+      <input type="number" id="timerHours" min="0" max="23" value="0" placeholder="0">
+    </div>
+    <div style="color:var(--gold);font-size:22px;padding-top:14px">:</div>
+    <div style="flex:1;text-align:center">
+      <label>دقائق</label><br>
+      <input type="number" id="timerMins" min="0" max="59" value="30" placeholder="30">
+    </div>
+  </div>
+  <div class="timer-btns">
+    <button class="btn-start" onclick="startTimer()">تفعيل</button>
+    <button class="btn-stop" onclick="stopTimer()">إيقاف</button>
+  </div>
+</div>
 
 <header>
   <div class="bismillah">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</div>
@@ -282,11 +398,9 @@ footer p { font-size: 13px; color: var(--text-muted); }
   <p>مجموعة مختارة من أجمل التلاوات لنخبة من القراء</p>
 </header>
 
-<!-- Tabs -->
 <div class="sheikh-tabs" id="sheikhTabs"></div>
 
 <div class="container">
-  <!-- Player -->
   <div class="player-section">
     <div class="player-header">
       <div class="player-icon">
@@ -301,19 +415,17 @@ footer p { font-size: 13px; color: var(--text-muted); }
       <iframe id="player"
         src="about:blank"
         allowfullscreen
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; background-fetch">
       </iframe>
     </div>
   </div>
 
-  <!-- Section title -->
   <div class="section-title">
     <h2 id="sectionName">قائمة التلاوات</h2>
     <div class="section-title-line"></div>
     <div class="section-count" id="sectionCount">—</div>
   </div>
 
-  <!-- Grid -->
   <div class="grid" id="cardGrid"></div>
 </div>
 
@@ -325,29 +437,8 @@ footer p { font-size: 13px; color: var(--text-muted); }
 <script>
 // =====================================================
 //  📌 هنا تضيف وتعدل الشيوخ والفيديوهات
-//
-//  كل شيخ عنده:
-//    name   : اسم الشيخ
-//    videos : قائمة الفيديوهات — كل فيديو فيه:
-//      id    : ID الفيديو من يوتيوب
-//      title : العنوان الكبير
-//      desc  : وصف صغير
-//
-//  إزاي تعرف ID الفيديو؟
-//  افتح الفيديو على يوتيوب — في الرابط هتلاقي:
-//  youtube.com/watch?v=  ← الـ ID هو اللي بعد v=
-//  مثال: youtube.com/watch?v=GhET5RHUwJg  ← الـ ID هو GhET5RHUwJg
-//
-//  إزاي تضيف فيديو جديد؟
-//  انسخ السطور دي وحطهم في قائمة الشيخ:
-//  { id: 'ID_هنا', title: 'العنوان', desc: 'الوصف' },
 // =====================================================
-
 const sheikhData = [
-
-  // ─────────────────────────────────────────────
-  // الشيخ الأول: ياسر الدوسري
-  // ─────────────────────────────────────────────
   {
     name: 'الشيخ ياسر الدوسري',
     videos: [
@@ -372,90 +463,72 @@ const sheikhData = [
       { id: '6i90UlAPNKc', title: 'وجاءت سكرة الموت', desc: 'تلاوة قديمة ومبكية' },
       { id: 'H-t2nt9wAMg', title: 'ولقد كرمنا بني آدم', desc: 'تلاوة مؤثرة جداً' },
       { id: 'YBtBQUseLfE', title: 'ويوم يعض الظالم', desc: 'صلاة العشاء' },
-      { id: '-Hh7tz6AIE0', title: 'اوليس الذي خلق السماوات والأرض بقادر', desc: 'آيات من سورة يس استمع للنهاية' },
-      { id: 'j20bmZm0b08', title: 'اوليس الذي خلق السماوات والأرض بقادر', desc: 'اواخر سورة يس' },
-      { id: 'qoW0Rdyo5MU', title: 'كيف تكفرون بالله وكنتم امواتا فأحياكم', desc: 'آيات من سورة البقرة' },
-      { id: '0GT6DtwsIZA', title: 'سورة الزلزلة والقارعه', desc: 'قراءه قديمه وخاشعه استمع' },
-      { id: 'jMzJTtT3Wj8', title: 'سورة السجدة', desc: 'قراءه قديمه وخاشعه نبرة نادرة' },
-      { id: 'vHkIfP1b1hE', title: 'اليوم نختم على أفواههم وتكلمنا أيديهم', desc: 'استمع للنهاية وتدبر' },
-      { id: 'c_mTU6jw9BI', title: 'إنا عرضنا الأمانة على السماوات والأرض والجبال', desc: 'قراءه هادئة' },
-      { id: 'NCnU6GD7YmA', title: 'ويسئلونك عن الروح', desc: 'من اجمل ما قرأ سكينة وطمئنينه' },
-      { id: 'hcl3gtvsTQ8', title: 'وإذ قال الله ياعيسى ابن مريم', desc: 'ماذا قال سيدنا عيسى عندما قال الله ءانت قلت للناس اتخذوني وامي الهين من دون الله' },
-      { id: 'KB1ZCwBeAXg', title: 'وَنَادَوَاْ يٰمَلِكُ لِيَقضِ عَلَيَنَاَ رَبُكّ', desc: 'القراءه الأكثر تأثيرا' },
-      { id: 'oW7cUa1IspU', title: 'سورة الواقعة', desc: 'خاشعة ومؤثرة بالأداء القديم الذي أبكى القلوب' },
-      { id: 'Kx3EemLUyqk', title: 'فخلف من بعدهم خلف أضاعوا الصلاة واتبعوا الشهوات فسوف يلقون غيا', desc: 'ترتيل فاق الإبداع والاذهان للشيخ ياسر الدوسري' },
-      { id: '10ypF4sXfuU', title: 'لَٰكِنِ الرَّاسِخُونَ فِي الْعِلْمِ', desc: ' تلاوه جميلة للشيخ ياسر الدوسري' },
+      { id: '-Hh7tz6AIE0', title: 'أوليس الذي خلق السماوات والأرض بقادر', desc: 'آيات من سورة يس' },
+      { id: 'j20bmZm0b08', title: 'أواخر سورة يس', desc: 'أوليس الذي خلق السماوات والأرض بقادر' },
+      { id: 'qoW0Rdyo5MU', title: 'كيف تكفرون بالله', desc: 'آيات من سورة البقرة' },
+      { id: '0GT6DtwsIZA', title: 'سورة الزلزلة والقارعة', desc: 'قراءة قديمة وخاشعة' },
+      { id: 'jMzJTtT3Wj8', title: 'سورة السجدة', desc: 'نبرة نادرة وخاشعة' },
+      { id: 'vHkIfP1b1hE', title: 'اليوم نختم على أفواههم', desc: 'استمع للنهاية وتدبر' },
+      { id: 'c_mTU6jw9BI', title: 'إنا عرضنا الأمانة', desc: 'قراءة هادئة' },
+      { id: 'NCnU6GD7YmA', title: 'ويسألونك عن الروح', desc: 'سكينة وطمأنينة' },
+      { id: 'hcl3gtvsTQ8', title: 'وإذ قال الله يا عيسى ابن مريم', desc: 'ماذا قال سيدنا عيسى' },
+      { id: 'KB1ZCwBeAXg', title: 'ونادوا يا مالك', desc: 'القراءة الأكثر تأثيراً' },
+      { id: 'oW7cUa1IspU', title: 'سورة الواقعة', desc: 'خاشعة ومؤثرة بالأداء القديم' },
+      { id: 'Kx3EemLUyqk', title: 'فخلف من بعدهم خلف', desc: 'أضاعوا الصلاة واتبعوا الشهوات' },
+      { id: '10ypF4sXfuU', title: 'لكن الراسخون في العلم', desc: 'تلاوة جميلة' },
       { id: 'Y3FvkSz0st4', title: 'أينما تكونوا يدرككم الموت', desc: 'عشائية بترتيل مؤثر' },
-      { id: 'hwdCtT-KMC4', title: 'ونادوا يا مالك', desc: 'ما اجمل هذه النبرة من المغرد تأثير وخشوع' },
-      { id: 'lGqoxtutHv0', title: 'وما يعلم جنود ربك الاهو', desc: 'تلاوة عراقية لا توصف للشيخ ياسر الدوسري' },
-      { id: 'uZQZGvSuRDg', title: 'أفحسبتم أنما خلقناكم عبثا', desc: 'تلاوة خاشعة للشيخ ياسر الدوسري' },
-      { id: 'YYsxgyOs0rI', title: 'يَا أَيُّهَا النَّاسُ أَنْتُمُ الْفُقَرَاءُ إِلَى اللهِ', desc: 'خااشعه للشيخ ياسر الدوسري' },
-      { id: 'JS9ykeI69Q0', title: 'هل جزاء الإحسان إلا الإحسان', desc: 'تلاوة متنوعة بترتيل مؤثر للشيخ ياسر الدوسري' },
-      { id: '5SRMdGCJiXw', title: 'سورتي النبأ و الفجر', desc: 'تلاوة من الماضي الجميل للشيخ ياسر الدوسري' },
-      { id: 'pLwpAYiiEro', title: 'سورة الجن', desc: 'تلاوة رائعة جداً ترق لها القلوب' },
-      { id: 'kT7C6BLs0FM', title: 'يا قومنا أجيبوا داعي الله', desc: 'قراءه مبكية ومؤثره استمع وتدبر في الايات' },
-      { id: 'zQTYXCPmYKk', title: 'وقضى ربك ألا تعبدوا إلا إياه وبالوالدين إحسانا', desc: 'تلاوة بالأداء الخاشع الحزين' },
-      { id: 'F-8nrxMIyYI', title: 'ربنا إنك تعلم ما نخفي وما نعلن', desc: 'ترتيل خاشع ومبكي من غريد الحرم ياسر الدوسري' },
-      { id: 'VcLQx2VfQCg', title: 'سورة الحاقة', desc: 'خُذوه فَغُلُّوه ثُم الجَحِيم صَلْوه' },
+      { id: 'hwdCtT-KMC4', title: 'ونادوا يا مالك', desc: 'ما أجمل هذه النبرة' },
+      { id: 'lGqoxtutHv0', title: 'وما يعلم جنود ربك إلا هو', desc: 'تلاوة عراقية لا توصف' },
+      { id: 'uZQZGvSuRDg', title: 'أفحسبتم أنما خلقناكم عبثاً', desc: 'تلاوة خاشعة' },
+      { id: 'YYsxgyOs0rI', title: 'يا أيها الناس أنتم الفقراء إلى الله', desc: 'خاشعة' },
+      { id: 'JS9ykeI69Q0', title: 'هل جزاء الإحسان إلا الإحسان', desc: 'ترتيل مؤثر' },
+      { id: '5SRMdGCJiXw', title: 'سورتي النبأ والفجر', desc: 'من الماضي الجميل' },
+      { id: 'pLwpAYiiEro', title: 'سورة الجن', desc: 'ترق لها القلوب' },
+      { id: 'kT7C6BLs0FM', title: 'يا قومنا أجيبوا داعي الله', desc: 'مبكية ومؤثرة' },
+      { id: 'F-8nrxMIyYI', title: 'ربنا إنك تعلم ما نخفي وما نعلن', desc: 'ترتيل خاشع ومبكي' },
+      { id: 'VcLQx2VfQCg', title: 'سورة الحاقة', desc: 'خذوه فغلوه ثم الجحيم صلوه' },
+      { id: 'KXZwsYMQKDY', title: 'فَلَا تَقُلْ لَهُمَا أُف', desc: ' ياسر الدوسري في عشائية عراقيه أبكت المصليه' },
+      { id: 'eGz0_9MWrYo', title: 'فَلَا تَلُومُونِي', desc: ' تلاوة مؤثرة' },
     ]
   },
-
-  // ─────────────────────────────────────────────
-  // الشيخ الثاني: محمد صديق المنشاوي
-  // أضف الفيديوهات هنا بنفس الطريقة
-  // ─────────────────────────────────────────────
   {
     name: 'الشيخ محمد صديق المنشاوي',
     videos: [
-      { id: 'qYNy-Ne6kA4', title: 'الذي خلقني فهو يهدين', desc: ' استمع عندما يقرأ الباكي' },
-      // { id: 'ID_هنا', title: 'العنوان', desc: 'الوصف' },
+      { id: 'qYNy-Ne6kA4', title: 'الذي خلقني فهو يهدين', desc: 'استمع عندما يقرأ الباكي' },
     ]
   },
-
-  // ─────────────────────────────────────────────
-  // الشيخ الثالث: أحمد العجمي
-  // ─────────────────────────────────────────────
   {
     name: 'الشيخ أحمد العجمي',
     videos: [
-      { id: 'PzA3tpE02Rc', title: 'سورة الحديد', desc: 'تلاوة ' },
-      // { id: 'ID_هنا', title: 'العنوان', desc: 'الوصف' },
+      { id: 'PzA3tpE02Rc', title: 'سورة الحديد', desc: 'تلاوة' },
     ]
   },
-
-  // ─────────────────────────────────────────────
-  // الشيخ الرابع: السيد سعيد
-  // ─────────────────────────────────────────────
   {
     name: 'الشيخ السيد سعيد',
     videos: [
       { id: 'di-JK18ljio', title: 'سورة يوسف', desc: 'استمع وتدبر' },
       { id: '6hSM_2nV-po', title: 'سورة المائدة', desc: 'استمع وتدبر' },
-      // { id: 'ID_هنا', title: 'العنوان', desc: 'الوصف' },
     ]
   },
-
-  // ─────────────────────────────────────────────
-  // الشيخ الخامس: محمد اللحيدان
-  // ─────────────────────────────────────────────
   {
     name: 'الشيخ محمد اللحيدان',
     videos: [
-      { id: 'SEK_1BROTqQ', title: '[ يُضَاعَفْ لَهُ الْعَذَابُ ]', desc: 'عشائية تفوق الوصف للشيخ محمد اللحيدان' },
-      // { id: 'ID_هنا', title: 'العنوان', desc: 'الوصف' },
+      { id: 'SEK_1BROTqQ', title: '[ يُضَاعَفْ لَهُ الْعَذَابُ ]', desc: 'عشائية تفوق الوصف' },
     ]
   },
-
-]; // ← نهاية البيانات — لا تحذف هذا السطر
+];
 
 // =====================================================
-//  الكود التلقائي — لا تعدل تحت هذا السطر
+//  الكود التلقائي
 // =====================================================
 
-const arabicNums = ['٠١','٠٢','٠٣','٠٤','٠٥','٠٦','٠٧','٠٨','٠٩','١٠','١١','١٢','١٣','١٤','١٥','١٦','١٧','١٨','١٩','٢٠','٢١','٢٢','٢٣','٢٤','٢٥','٢٦','٢٧','٢٨','٢٩','٣٠'];
+const arabicNums = ['٠١','٠٢','٠٣','٠٤','٠٥','٠٦','٠٧','٠٨','٠٩','١٠','١١','١٢','١٣','١٤','١٥','١٦','١٧','١٨','١٩','٢٠','٢١','٢٢','٢٣','٢٤','٢٥','٢٦','٢٧','٢٨','٢٩','٣٠','٣١','٣٢','٣٣','٣٤','٣٥','٣٦','٣٧','٣٨','٣٩','٤٠','٤١','٤٢','٤٣','٤٤','٤٥','٤٦','٤٧','٤٨','٤٩','٥٠'];
+
 let currentSheikh = 0;
+let currentVideoIdx = -1;
 let currentCard = null;
 
+// ── بناء التابز ──
 function buildTabs() {
   const tabsEl = document.getElementById('sheikhTabs');
   sheikhData.forEach((s, i) => {
@@ -469,6 +542,7 @@ function buildTabs() {
 
 function selectSheikh(idx) {
   currentSheikh = idx;
+  currentVideoIdx = -1;
   currentCard = null;
   document.querySelectorAll('.sheikh-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
   document.getElementById('videoTitle').textContent = 'اختر تلاوة للاستماع';
@@ -484,49 +558,136 @@ function renderCards(idx) {
 
   if (!sheikh.videos.length) {
     document.getElementById('sectionCount').textContent = 'لا يوجد فيديوهات بعد';
-    grid.innerHTML = `
-      <div class="empty-state" style="grid-column:1/-1">
-        <div class="empty-icon">📖</div>
-        <h3>لم تُضف تلاوات بعد</h3>
-      </div>`;
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📖</div><h3>لم تُضف تلاوات بعد</h3></div>`;
     return;
   }
 
-  document.getElementById('sectionCount').textContent = arabicNums[sheikh.videos.length - 1] + ' تلاوة';
+  const count = sheikh.videos.length;
+  document.getElementById('sectionCount').textContent = (arabicNums[count - 1] || count) + ' تلاوة';
   grid.innerHTML = '';
   sheikh.videos.forEach((v, i) => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.style.animationDelay = (i * 0.05) + 's';
+    card.style.animationDelay = (i * 0.04) + 's';
+    card.dataset.idx = i;
     card.innerHTML = `
-      <div class="card-number">${arabicNums[i] || (i+1)}</div>
+      <div class="card-number">${arabicNums[i] || (i + 1)}</div>
       <div class="card-top">
-        <div class="card-play-btn">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        <div class="card-text">
-          <h3>${v.title}</h3>
-          <p>${v.desc}</p>
-        </div>
+        <div class="card-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="card-text"><h3>${v.title}</h3><p>${v.desc}</p></div>
       </div>`;
-    card.onclick = () => playVideo(card, v.id, v.title);
+    card.onclick = () => playByIdx(i);
     grid.appendChild(card);
   });
 }
 
-function playVideo(card, id, title) {
-  if (currentCard) currentCard.classList.remove('active');
-  card.classList.add('active');
-  currentCard = card;
+function playByIdx(idx) {
+  const sheikh = sheikhData[currentSheikh];
+  if (idx < 0 || idx >= sheikh.videos.length) return;
+
+  const v = sheikh.videos[idx];
+  currentVideoIdx = idx;
+
+  // تحديث الكارت
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  const cards = document.querySelectorAll('.card');
+  if (cards[idx]) cards[idx].classList.add('active');
+  currentCard = cards[idx] || null;
+
+  // تشغيل الفيديو مع enablejsapi لمعرفة انتهائه
   document.getElementById('player').src =
-    'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
-  document.getElementById('videoTitle').textContent = title;
+    `https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
+  document.getElementById('videoTitle').textContent = v.title;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ── تشغيل تلقائي للفيديو التالي ──
+// نستخدم postMessage من YouTube IFrame API
+window.addEventListener('message', function(e) {
+  try {
+    const data = JSON.parse(e.data);
+    // state=0 يعني انتهى الفيديو
+    if (data.event === 'onStateChange' && data.info === 0) {
+      playNext();
+    }
+  } catch(err) {}
+});
+
+function playNext() {
+  if (timerExpired) return; // لو المؤقت خلص وقف
+  const sheikh = sheikhData[currentSheikh];
+  const nextIdx = currentVideoIdx + 1;
+  if (nextIdx < sheikh.videos.length) {
+    playByIdx(nextIdx);
+  }
+}
+
+// ── المؤقت ──
+let timerInterval = null;
+let timerSeconds = 0;
+let timerExpired = false;
+
+function toggleTimerPanel() {
+  document.getElementById('timerPanel').classList.toggle('open');
+}
+
+// أغلق اللوحة لو ضغط برا
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('timerPanel');
+  const btn = document.getElementById('timerBtn');
+  if (!panel.contains(e.target) && !btn.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+
+function startTimer() {
+  const h = parseInt(document.getElementById('timerHours').value) || 0;
+  const m = parseInt(document.getElementById('timerMins').value) || 0;
+  const total = (h * 3600) + (m * 60);
+  if (total <= 0) return;
+
+  stopTimer();
+  timerSeconds = total;
+  timerExpired = false;
+  document.getElementById('timerBtn').classList.add('active');
+  updateTimerDisplay();
+
+  timerInterval = setInterval(() => {
+    timerSeconds--;
+    updateTimerDisplay();
+    if (timerSeconds <= 0) {
+      stopTimer();
+      timerExpired = true;
+      // أوقف الفيديو
+      document.getElementById('player').src = 'about:blank';
+      document.getElementById('videoTitle').textContent = 'انتهى المؤقت 🌙';
+      document.getElementById('timerDisplay').textContent = 'انتهى ✓';
+    }
+  }, 1000);
+
+  document.getElementById('timerPanel').classList.remove('open');
+}
+
+function stopTimer() {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  document.getElementById('timerBtn').classList.remove('active');
+}
+
+function updateTimerDisplay() {
+  const h = Math.floor(timerSeconds / 3600);
+  const m = Math.floor((timerSeconds % 3600) / 60);
+  const s = timerSeconds % 60;
+  const display = h > 0
+    ? `${pad(h)}:${pad(m)}:${pad(s)}`
+    : `${pad(m)}:${pad(s)}`;
+  document.getElementById('timerDisplay').textContent = display;
+}
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+// ── Init ──
 buildTabs();
 renderCards(0);
 </script>
-
 </body>
 </html>
