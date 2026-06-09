@@ -39,160 +39,18 @@
     pointer-events: none; z-index: 0;
   }
 
-  /* ══ اسم مصطفى جيمي ══ */
-  .brand-name {
+  /* ══ اسم ثابت أسفل يسار ══ */
+  .brand-fixed {
     position: fixed;
-    top: 16px;
-    left: 20px;
-    z-index: 999;
+    bottom: 10px;
+    left: 12px;
+    z-index: 9999;
     font-family: 'Reem Kufi', serif;
-    font-size: 22px;
-    color: var(--gold);
-    letter-spacing: 1px;
-    text-shadow: 0 0 20px rgba(201,168,76,0.5);
-    background: rgba(13,15,20,0.7);
-    padding: 6px 14px;
-    border-radius: 30px;
-    border: 1px solid rgba(201,168,76,0.25);
-    backdrop-filter: blur(8px);
-    cursor: default;
-    animation: brandFloat 3s ease-in-out infinite, brandGlow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes brandFloat {
-    0%,100% { transform: translateY(0px); }
-    50%      { transform: translateY(-5px); }
-  }
-  @keyframes brandGlow {
-    from { text-shadow: 0 0 10px rgba(201,168,76,0.3), 0 0 20px rgba(201,168,76,0.1); }
-    to   { text-shadow: 0 0 20px rgba(201,168,76,0.8), 0 0 40px rgba(201,168,76,0.3); }
-  }
-
-  /* ══ أيقونات التواصل ══ */
-  .social-bar {
-    position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-    display: flex;
-    gap: 14px;
-    background: rgba(13,15,20,0.85);
-    padding: 10px 18px;
-    border-radius: 50px;
-    border: 1px solid rgba(201,168,76,0.2);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  }
-
-  .social-btn {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .social-btn:hover { transform: translateY(-4px) scale(1.1); }
-  .social-btn svg { width: 22px; height: 22px; }
-
-  .social-btn.facebook { background: #1877f2; }
-  .social-btn.facebook:hover { background: #2d8cf0; box-shadow: 0 6px 20px rgba(24,119,242,0.5); }
-
-  .social-btn.whatsapp { background: #25d366; }
-  .social-btn.whatsapp:hover { background: #20bd5a; box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
-
-  /* ══ المؤقت ══ */
-  .timer-btn {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.35);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    position: relative;
-  }
-  .timer-btn:hover { background: rgba(201,168,76,0.25); transform: translateY(-4px) scale(1.1); box-shadow: 0 6px 20px rgba(201,168,76,0.3); }
-  .timer-btn svg { width: 22px; height: 22px; fill: var(--gold); }
-  .timer-btn.active { background: rgba(201,168,76,0.3); border-color: var(--gold); animation: timerPulse 1s ease-in-out infinite; }
-  @keyframes timerPulse { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4)} 50%{box-shadow:0 0 0 8px rgba(201,168,76,0)} }
-
-  /* ══ Timer Panel ══ */
-  .timer-panel {
-    position: fixed;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
-    z-index: 1000;
-    background: var(--dark2);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 18px;
-    padding: 22px 24px;
-    width: 280px;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    opacity: 0;
+    font-size: 12px;
+    color: rgba(201,168,76,0.7);
     pointer-events: none;
-    transition: all 0.3s;
+    letter-spacing: 0.5px;
   }
-  .timer-panel.open {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateX(-50%) scale(1);
-  }
-  .timer-panel h4 {
-    font-family: 'Amiri', serif;
-    color: var(--gold);
-    font-size: 16px;
-    margin-bottom: 14px;
-    text-align: center;
-  }
-  .timer-display {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--gold-light);
-    letter-spacing: 3px;
-    margin-bottom: 14px;
-    font-family: monospace;
-    text-shadow: 0 0 20px rgba(201,168,76,0.3);
-  }
-  .timer-inputs {
-    display: flex; gap: 8px; margin-bottom: 14px; align-items: center;
-  }
-  .timer-inputs input {
-    flex: 1;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 10px;
-    padding: 10px 12px;
-    color: var(--text-main);
-    font-size: 16px;
-    text-align: center;
-    font-family: 'Cairo', sans-serif;
-    outline: none;
-    transition: border-color .2s;
-  }
-  .timer-inputs input:focus { border-color: var(--gold); }
-  .timer-inputs label { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
-  .timer-btns { display: flex; gap: 8px; }
-  .timer-btns button {
-    flex: 1;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    transition: all .25s;
-  }
-  .btn-start { background: var(--gold); color: var(--dark); }
-  .btn-start:hover { background: var(--gold-light); }
-  .btn-stop { background: rgba(255,80,80,0.15); color: #ff6060; border: 1px solid rgba(255,80,80,0.3); }
-  .btn-stop:hover { background: rgba(255,80,80,0.25); }
 
   /* ══ Header ══ */
   header {
@@ -248,17 +106,21 @@
   .container {
     position: relative; z-index: 1;
     max-width: 1280px; margin: auto;
-    padding: 40px 24px 120px;
+    padding: 40px 24px 60px;
   }
 
-  /* ══ Player ══ */
+  /* ══ Player — مخفي بالأساس ══ */
   .player-section {
     background: var(--dark2);
     border: 1px solid rgba(201,168,76,0.25);
     border-radius: 20px; overflow: hidden;
     margin-bottom: 50px;
     box-shadow: 0 0 0 1px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.5);
+    display: none; /* مخفي */
+    transition: all 0.4s;
   }
+  .player-section.visible { display: block; }
+
   .player-header {
     padding: 22px 28px 18px;
     background: linear-gradient(180deg, rgba(201,168,76,0.07) 0%, transparent 100%);
@@ -275,9 +137,69 @@
   .player-icon svg { width: 20px; height: 20px; fill: var(--gold); }
   .now-playing-label { font-size: 11px; color: var(--gold); letter-spacing: 2px; font-weight: 600; margin-bottom: 4px; }
   #videoTitle { font-family: 'Amiri', serif; font-size: 18px; color: var(--text-main); font-weight: 700; line-height: 1.4; }
-
   .player-frame { width: 100%; aspect-ratio: 16/9; }
   .player-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  /* ══ شريط المؤقت فوق الكروت ══ */
+  .timer-bar {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 14px;
+    padding: 12px 18px;
+  }
+  .timer-bar-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .timer-bar-label {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .timer-bar-display {
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+    min-width: 70px;
+    text-align: center;
+  }
+  .timer-bar input {
+    width: 60px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    padding: 6px 8px;
+    color: var(--text-main);
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+  }
+  .timer-bar input:focus { border-color: var(--gold); }
+  .timer-bar-sep { color: var(--text-muted); font-size: 16px; }
+  .timer-bar button {
+    padding: 7px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all .2s;
+    flex-shrink: 0;
+  }
+  .btn-start { background: var(--gold); color: var(--dark); }
+  .btn-start:hover { background: var(--gold-light); }
+  .btn-stop { background: rgba(255,80,80,0.15); color: #ff7070; border: 1px solid rgba(255,80,80,0.25); }
+  .btn-stop:hover { background: rgba(255,80,80,0.25); }
+  .timer-bar.active .timer-bar-label { animation: timerPulse 1.5s ease-in-out infinite; }
+  @keyframes timerPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
   /* ══ Section title ══ */
   .section-title { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
@@ -303,7 +225,7 @@
     background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent 70%);
     pointer-events: none;
   }
-  .card:hover { border-color: rgba(201,168,76,0.45); background: var(--dark3); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.15); }
+  .card:hover { border-color: rgba(201,168,76,0.45); background: var(--dark3); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
   .card.active { border-color: var(--gold); background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03)); box-shadow: 0 0 0 1px rgba(201,168,76,0.3), 0 8px 24px rgba(0,0,0,0.3); }
   .card-number { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
   .card.active .card-number { color: var(--gold); }
@@ -325,67 +247,82 @@
   .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
   .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
   .empty-state h3 { font-family: 'Amiri', serif; font-size: 20px; color: var(--gold); margin-bottom: 10px; }
-  .empty-state p { font-size: 14px; line-height: 1.8; }
-  .empty-state code { display: inline-block; margin-top: 12px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); color: var(--gold-light); padding: 8px 16px; border-radius: 8px; font-size: 13px; direction: ltr; font-family: monospace; }
 
-  footer { position: relative; z-index: 1; text-align: center; padding: 40px 20px; border-top: 1px solid rgba(201,168,76,0.12); }
-  .footer-dua { font-family: 'Amiri Quran', serif; font-size: 18px; color: var(--gold); margin-bottom: 12px; text-shadow: 0 0 30px rgba(201,168,76,0.2); }
-  footer p { font-size: 13px; color: var(--text-muted); }
+  /* ══ Footer مع السوشيال والاسم ══ */
+  footer {
+    position: relative; z-index: 1;
+    padding: 40px 20px 30px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .footer-inner {
+    max-width: 1280px; margin: auto;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+  }
+  .footer-dua { font-family: 'Amiri Quran', serif; font-size: 18px; color: var(--gold); text-align: center; text-shadow: 0 0 30px rgba(201,168,76,0.2); }
+  .footer-sub { font-size: 13px; color: var(--text-muted); text-align: center; }
+
+  /* أيقونات السوشيال في الفوتر */
+  .footer-social {
+    display: flex; gap: 16px; align-items: center;
+  }
+  .social-link {
+    display: flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px; font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s;
+  }
+  .social-link svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .social-link.facebook {
+    background: rgba(24,119,242,0.15);
+    border: 1px solid rgba(24,119,242,0.35);
+    color: #60a5fa;
+  }
+  .social-link.facebook:hover {
+    background: rgba(24,119,242,0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(24,119,242,0.3);
+  }
+  .social-link.whatsapp {
+    background: rgba(37,211,102,0.12);
+    border: 1px solid rgba(37,211,102,0.3);
+    color: #4ade80;
+  }
+  .social-link.whatsapp:hover {
+    background: rgba(37,211,102,0.22);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.25);
+  }
+
+  /* اسم أسفل الفوتر يسار */
+  .footer-brand {
+    width: 100%;
+    text-align: left;
+    font-family: 'Reem Kufi', serif;
+    font-size: 12px;
+    color: rgba(201,168,76,0.5);
+    padding-top: 10px;
+    border-top: 1px solid rgba(201,168,76,0.06);
+  }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (max-width: 640px) {
     .grid { grid-template-columns: 1fr 1fr; }
-    .container { padding: 24px 16px 120px; }
+    .container { padding: 24px 16px 40px; }
     .sheikh-tab { padding: 14px 16px; font-size: 13px; }
-    .brand-name { font-size: 17px; top: 12px; left: 12px; padding: 5px 11px; }
+    .timer-bar { flex-wrap: wrap; }
+    .footer-social { flex-direction: column; gap: 10px; }
   }
   @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- اسم مصطفى جيمي متحرك -->
-<div class="brand-name">مصطفى جيمي</div>
-
-<!-- أيقونات التواصل + المؤقت -->
-<div class="social-bar">
-  <!-- فيسبوك — ضع رابطك هنا -->
-  <a class="social-btn facebook" href="https://www.facebook.com/gemy5551" target="_blank" title="فيسبوك">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-  </a>
-
-  <!-- واتساب — ضع رقمك هنا -->
-  <a class="social-btn whatsapp" href="https://wa.me/20236751961" target="_blank" title="واتساب">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-
-  <!-- المؤقت -->
-  <div class="timer-btn" id="timerBtn" onclick="toggleTimerPanel()" title="مؤقت النوم">
-    <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9a8.985 8.985 0 00-2.97-6.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-  </div>
-</div>
-
-<!-- لوحة المؤقت -->
-<div class="timer-panel" id="timerPanel">
-  <h4>⏱ مؤقت النوم</h4>
-  <div class="timer-display" id="timerDisplay">00:00</div>
-  <div class="timer-inputs">
-    <div style="flex:1;text-align:center">
-      <label>ساعات</label><br>
-      <input type="number" id="timerHours" min="0" max="23" value="0" placeholder="0">
-    </div>
-    <div style="color:var(--gold);font-size:22px;padding-top:14px">:</div>
-    <div style="flex:1;text-align:center">
-      <label>دقائق</label><br>
-      <input type="number" id="timerMins" min="0" max="59" value="30" placeholder="30">
-    </div>
-  </div>
-  <div class="timer-btns">
-    <button class="btn-start" onclick="startTimer()">تفعيل</button>
-    <button class="btn-stop" onclick="stopTimer()">إيقاف</button>
-  </div>
-</div>
+<!-- اسم ثابت أسفل يسار -->
+<div class="brand-fixed">مصطفى جيمي</div>
 
 <header>
   <div class="bismillah">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</div>
@@ -401,25 +338,40 @@
 <div class="sheikh-tabs" id="sheikhTabs"></div>
 
 <div class="container">
-  <div class="player-section">
+
+  <!-- Player مخفي بالأساس -->
+  <div class="player-section" id="playerSection">
     <div class="player-header">
       <div class="player-icon">
         <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
       </div>
       <div>
         <div class="now-playing-label">يُشغّل الآن</div>
-        <div id="videoTitle">اختر تلاوة للاستماع</div>
+        <div id="videoTitle">—</div>
       </div>
     </div>
     <div class="player-frame">
       <iframe id="player"
         src="about:blank"
         allowfullscreen
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; background-fetch">
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
       </iframe>
     </div>
   </div>
 
+  <!-- شريط المؤقت -->
+  <div class="timer-bar" id="timerBar">
+    <div class="timer-bar-icon">⏰</div>
+    <div class="timer-bar-label">مؤقت النوم</div>
+    <input type="number" id="timerHours" min="0" max="23" value="0" placeholder="س">
+    <div class="timer-bar-sep">:</div>
+    <input type="number" id="timerMins" min="0" max="59" value="30" placeholder="د">
+    <div class="timer-bar-display" id="timerDisplay">—</div>
+    <button class="btn-start" onclick="startTimer()">تفعيل</button>
+    <button class="btn-stop" onclick="stopTimer()">إيقاف</button>
+  </div>
+
+  <!-- عنوان القسم -->
   <div class="section-title">
     <h2 id="sectionName">قائمة التلاوات</h2>
     <div class="section-title-line"></div>
@@ -429,14 +381,33 @@
   <div class="grid" id="cardGrid"></div>
 </div>
 
+<!-- Footer -->
 <footer>
-  <div class="footer-dua">اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا وَنُورَ صُدُورِنَا</div>
-  <p>جمعها بمحبة للقرآن الكريم وأهله 🤍</p>
+  <div class="footer-inner">
+    <div class="footer-dua">اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا وَنُورَ صُدُورِنَا</div>
+    <div class="footer-sub">جمعها بمحبة للقرآن الكريم وأهله 🤍</div>
+
+    <!-- أيقونات السوشيال -->
+    <div class="footer-social">
+      <!-- ⬇️ غيّر الرابط لرابط فيسبوكك -->
+      <a class="social-link facebook" href="https://www.facebook.com/YOUR_PROFILE" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        فيسبوك
+      </a>
+      <!-- ⬇️ غيّر الرقم لرقمك — مثال: 201012345678 -->
+      <a class="social-link whatsapp" href="https://wa.me/201XXXXXXXXX" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        واتساب
+      </a>
+    </div>
+
+    <div class="footer-brand">مصطفى جيمي</div>
+  </div>
 </footer>
 
 <script>
 // =====================================================
-//  📌 هنا تضيف وتعدل الشيوخ والفيديوهات
+//  📌 البيانات — أضف فيديوهاتك هنا
 // =====================================================
 const sheikhData = [
   {
@@ -487,8 +458,6 @@ const sheikhData = [
       { id: 'kT7C6BLs0FM', title: 'يا قومنا أجيبوا داعي الله', desc: 'مبكية ومؤثرة' },
       { id: 'F-8nrxMIyYI', title: 'ربنا إنك تعلم ما نخفي وما نعلن', desc: 'ترتيل خاشع ومبكي' },
       { id: 'VcLQx2VfQCg', title: 'سورة الحاقة', desc: 'خذوه فغلوه ثم الجحيم صلوه' },
-      { id: 'KXZwsYMQKDY', title: 'فَلَا تَقُلْ لَهُمَا أُف', desc: ' ياسر الدوسري في عشائية عراقيه أبكت المصليه' },
-      { id: 'eGz0_9MWrYo', title: 'فَلَا تَلُومُونِي', desc: ' تلاوة مؤثرة' },
     ]
   },
   {
@@ -519,16 +488,16 @@ const sheikhData = [
 ];
 
 // =====================================================
-//  الكود التلقائي
-// =====================================================
-
 const arabicNums = ['٠١','٠٢','٠٣','٠٤','٠٥','٠٦','٠٧','٠٨','٠٩','١٠','١١','١٢','١٣','١٤','١٥','١٦','١٧','١٨','١٩','٢٠','٢١','٢٢','٢٣','٢٤','٢٥','٢٦','٢٧','٢٨','٢٩','٣٠','٣١','٣٢','٣٣','٣٤','٣٥','٣٦','٣٧','٣٨','٣٩','٤٠','٤١','٤٢','٤٣','٤٤','٤٥','٤٦','٤٧','٤٨','٤٩','٥٠'];
 
 let currentSheikh = 0;
 let currentVideoIdx = -1;
 let currentCard = null;
+let timerInterval = null;
+let timerSeconds = 0;
+let timerActive = false;
 
-// ── بناء التابز ──
+// ── Tabs ──
 function buildTabs() {
   const tabsEl = document.getElementById('sheikhTabs');
   sheikhData.forEach((s, i) => {
@@ -545,7 +514,8 @@ function selectSheikh(idx) {
   currentVideoIdx = -1;
   currentCard = null;
   document.querySelectorAll('.sheikh-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
-  document.getElementById('videoTitle').textContent = 'اختر تلاوة للاستماع';
+  // إخفاء المشغل
+  document.getElementById('playerSection').classList.remove('visible');
   document.getElementById('player').src = 'about:blank';
   renderCards(idx);
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -565,6 +535,7 @@ function renderCards(idx) {
   const count = sheikh.videos.length;
   document.getElementById('sectionCount').textContent = (arabicNums[count - 1] || count) + ' تلاوة';
   grid.innerHTML = '';
+
   sheikh.videos.forEach((v, i) => {
     const card = document.createElement('div');
     card.className = 'card';
@@ -588,58 +559,66 @@ function playByIdx(idx) {
   const v = sheikh.videos[idx];
   currentVideoIdx = idx;
 
-  // تحديث الكارت
+  // إظهار المشغل
+  const playerSection = document.getElementById('playerSection');
+  playerSection.classList.add('visible');
+
+  // تحديث الكارت النشط
   document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
   const cards = document.querySelectorAll('.card');
-  if (cards[idx]) cards[idx].classList.add('active');
-  currentCard = cards[idx] || null;
+  if (cards[idx]) {
+    cards[idx].classList.add('active');
+    currentCard = cards[idx];
+  }
 
-  // تشغيل الفيديو مع enablejsapi لمعرفة انتهائه
+  // تشغيل الفيديو
+  // enablejsapi=1 ضروري لمعرفة انتهاء الفيديو
   document.getElementById('player').src =
-    `https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`;
+    `https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1&origin=${encodeURIComponent(location.origin || 'file://')}`;
   document.getElementById('videoTitle').textContent = v.title;
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ── تشغيل تلقائي للفيديو التالي ──
-// نستخدم postMessage من YouTube IFrame API
+// ── تشغيل تلقائي: استمع لرسائل YouTube ──
 window.addEventListener('message', function(e) {
   try {
     const data = JSON.parse(e.data);
-    // state=0 يعني انتهى الفيديو
+    // state 0 = ended
     if (data.event === 'onStateChange' && data.info === 0) {
-      playNext();
+      if (!timerActive) { // لو المؤقت مش شغال أو لسه وقت
+        playNext();
+      }
     }
-  } catch(err) {}
+  } catch (err) {}
 });
 
+// ── بديل للكشف عن انتهاء الفيديو بدون postMessage ──
+// نستخدم polling كل 3 ثوان نتحقق من حالة الـ iframe
+let pollInterval = null;
+function startPolling() {
+  if (pollInterval) clearInterval(pollInterval);
+  pollInterval = setInterval(() => {
+    const iframe = document.getElementById('player');
+    // نرسل رسالة للـ iframe عشان يرد بحالته
+    try {
+      iframe.contentWindow.postMessage('{"event":"listening"}', '*');
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: 'getPlayerState', args: '' }), '*'
+      );
+    } catch(e) {}
+  }, 3000);
+}
+
 function playNext() {
-  if (timerExpired) return; // لو المؤقت خلص وقف
   const sheikh = sheikhData[currentSheikh];
   const nextIdx = currentVideoIdx + 1;
   if (nextIdx < sheikh.videos.length) {
-    playByIdx(nextIdx);
+    setTimeout(() => playByIdx(nextIdx), 1500);
   }
 }
 
 // ── المؤقت ──
-let timerInterval = null;
-let timerSeconds = 0;
-let timerExpired = false;
-
-function toggleTimerPanel() {
-  document.getElementById('timerPanel').classList.toggle('open');
-}
-
-// أغلق اللوحة لو ضغط برا
-document.addEventListener('click', function(e) {
-  const panel = document.getElementById('timerPanel');
-  const btn = document.getElementById('timerBtn');
-  if (!panel.contains(e.target) && !btn.contains(e.target)) {
-    panel.classList.remove('open');
-  }
-});
-
 function startTimer() {
   const h = parseInt(document.getElementById('timerHours').value) || 0;
   const m = parseInt(document.getElementById('timerMins').value) || 0;
@@ -648,8 +627,8 @@ function startTimer() {
 
   stopTimer();
   timerSeconds = total;
-  timerExpired = false;
-  document.getElementById('timerBtn').classList.add('active');
+  timerActive = true;
+  document.getElementById('timerBar').classList.add('active');
   updateTimerDisplay();
 
   timerInterval = setInterval(() => {
@@ -657,30 +636,29 @@ function startTimer() {
     updateTimerDisplay();
     if (timerSeconds <= 0) {
       stopTimer();
-      timerExpired = true;
+      timerActive = false;
       // أوقف الفيديو
       document.getElementById('player').src = 'about:blank';
       document.getElementById('videoTitle').textContent = 'انتهى المؤقت 🌙';
       document.getElementById('timerDisplay').textContent = 'انتهى ✓';
+      document.getElementById('playerSection').classList.remove('visible');
     }
   }, 1000);
-
-  document.getElementById('timerPanel').classList.remove('open');
 }
 
 function stopTimer() {
   if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-  document.getElementById('timerBtn').classList.remove('active');
+  timerActive = false;
+  document.getElementById('timerBar').classList.remove('active');
+  if (timerSeconds <= 0) document.getElementById('timerDisplay').textContent = '—';
 }
 
 function updateTimerDisplay() {
   const h = Math.floor(timerSeconds / 3600);
   const m = Math.floor((timerSeconds % 3600) / 60);
   const s = timerSeconds % 60;
-  const display = h > 0
-    ? `${pad(h)}:${pad(m)}:${pad(s)}`
-    : `${pad(m)}:${pad(s)}`;
-  document.getElementById('timerDisplay').textContent = display;
+  document.getElementById('timerDisplay').textContent =
+    h > 0 ? `${pad(h)}:${pad(m)}:${pad(s)}` : `${pad(m)}:${pad(s)}`;
 }
 
 function pad(n) { return String(n).padStart(2, '0'); }
