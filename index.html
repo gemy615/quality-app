@@ -475,6 +475,33 @@
     grid-template-columns: 1fr;
   }
 }
+    @media (max-width: 640px) {
+
+  .player-timer-bar{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px;
+    padding:10px;
+  }
+
+  .player-timer-bar input{
+    width:50px;
+  }
+
+  .player-timer-bar .pt-display{
+    width:100%;
+    order:99;
+    text-align:center;
+  }
+
+  .player-timer-bar .pt-start,
+  .player-timer-bar .pt-stop{
+    flex:1;
+    min-width:80px;
+  }
+
+}
   </style>
 </head>
 <body>
