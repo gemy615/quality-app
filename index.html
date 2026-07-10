@@ -734,11 +734,16 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerStateChange(event) {
-  // YT.PlayerState.ENDED = 0
-  if (event.data === 0) {
-    if (!timerActive) {
-      playNext();
-    }
+  if (event.data === YT.PlayerState.ENDED) {
+    playNext();
+  }
+}
+
+function playNext() {
+  const sheikh = sheikhData[currentSheikh];
+  const nextIdx = currentVideoIdx + 1;
+  if (nextIdx < sheikh.videos.length) {
+    setTimeout(() => playByIdx(nextIdx), 1200);
   }
 }
 
