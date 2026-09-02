@@ -42,8 +42,7 @@
   /* ══ اسم ثابت أسفل يسار ══ */
   .brand-fixed {
     position: fixed;
-    bottom: 10px;
-    left: 12px;
+    bottom: 10px; left: 12px;
     z-index: 9999;
     font-family: 'Reem Kufi', serif;
     font-size: 12px;
@@ -52,49 +51,138 @@
     letter-spacing: 0.5px;
   }
 
+  /* ══ الأيقونات الثابتة (مصحف + مؤقت) ══ */
+  .fab-group {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .fab-btn {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(13,15,20,0.9);
+    border: 1px solid rgba(201,168,76,0.35);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+    position: relative;
+    text-decoration: none;
+  }
+  .fab-btn:hover {
+    border-color: var(--gold);
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(201,168,76,0.25);
+  }
+  .fab-btn svg { width: 24px; height: 24px; fill: var(--gold); }
+
+  /* أيقونة المصحف */
+  .fab-mushaf { }
+  .fab-mushaf:hover { background: rgba(201,168,76,0.15); }
+
+  /* تولتيب الاسم */
+  .fab-btn .fab-tooltip {
+    position: absolute;
+    right: 60px;
+    top: 50%; transform: translateY(-50%);
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold);
+    font-family: 'Cairo', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .fab-btn:hover .fab-tooltip { opacity: 1; }
+
+  /* أيقونة المؤقت */
+  .timer-fab { }
+  .timer-fab.active {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.15);
+    animation: fabPulse 1.5s ease-in-out infinite;
+  }
+  .timer-fab-countdown {
+    position: absolute;
+    top: -8px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--dark);
+    font-size: 9px; font-weight: 700;
+    font-family: monospace;
+    padding: 2px 5px; border-radius: 8px;
+    white-space: nowrap; display: none;
+  }
+  .timer-fab.active .timer-fab-countdown { display: block; }
+
+  @keyframes fabPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+    50%      { box-shadow: 0 0 0 8px rgba(201,168,76,0); }
+  }
+
   /* ══ شريط المؤقت الصغير تحت الفيديو ══ */
   .player-timer-bar {
     display: none;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 10px 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px;
     background: rgba(201,168,76,0.04);
     border-top: 1px solid rgba(201,168,76,0.1);
   }
   .player-section.visible .player-timer-bar { display: flex; }
-  .player-timer-bar .pt-icon { font-size: 15px; cursor: pointer; }
+  .player-timer-bar .pt-icon { font-size: 15px; cursor: pointer; flex-shrink: 0; }
+  .player-timer-bar .pt-label {
+    font-size: clamp(10px, 2.5vw, 12px);
+    color: var(--text-muted);
+    font-family: 'Cairo', sans-serif;
+    flex-shrink: 0;
+  }
   .player-timer-bar .pt-display {
     font-family: monospace;
-    font-size: 13px;
+    font-size: clamp(11px, 3vw, 13px);
     color: var(--gold);
     letter-spacing: 1px;
-    min-width: 48px;
+    min-width: 44px;
     text-align: center;
+    flex-shrink: 0;
   }
   .player-timer-bar input {
-    width: 44px;
+    width: clamp(36px, 10vw, 46px);
     background: rgba(201,168,76,0.08);
     border: 1px solid rgba(201,168,76,0.2);
     border-radius: 6px;
-    padding: 4px 6px;
+    padding: 4px;
     color: var(--text-main);
-    font-size: 13px;
+    font-size: clamp(11px, 3vw, 13px);
     text-align: center;
     font-family: monospace;
     outline: none;
+    flex-shrink: 0;
   }
   .player-timer-bar input:focus { border-color: var(--gold); }
-  .player-timer-bar .pt-sep { color: var(--text-muted); font-size: 13px; }
+  .player-timer-bar .pt-sep { color: var(--text-muted); font-size: 13px; flex-shrink: 0; }
   .player-timer-bar button {
-    padding: 4px 12px;
-    border-radius: 6px;
-    border: none;
+    padding: clamp(3px,1vw,5px) clamp(8px,2.5vw,14px);
+    border-radius: 6px; border: none;
     cursor: pointer;
     font-family: 'Cairo', sans-serif;
-    font-size: 12px;
+    font-size: clamp(10px, 2.8vw, 12px);
     font-weight: 700;
     transition: all .2s;
+    flex-shrink: 0;
   }
   .player-timer-bar .pt-start { background: rgba(201,168,76,0.2); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
   .player-timer-bar .pt-start:hover { background: rgba(201,168,76,0.35); }
@@ -159,18 +247,16 @@
     padding: 40px 24px 60px;
   }
 
-  /* ══ Player — مخفي بالأساس ══ */
+  /* ══ Player ══ */
   .player-section {
     background: var(--dark2);
     border: 1px solid rgba(201,168,76,0.25);
     border-radius: 20px; overflow: hidden;
     margin-bottom: 50px;
     box-shadow: 0 0 0 1px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.5);
-    display: none; /* مخفي */
-    transition: all 0.4s;
+    display: none;
   }
   .player-section.visible { display: block; }
-
   .player-header {
     padding: 22px 28px 18px;
     background: linear-gradient(180deg, rgba(201,168,76,0.07) 0%, transparent 100%);
@@ -188,59 +274,11 @@
   .now-playing-label { font-size: 11px; color: var(--gold); letter-spacing: 2px; font-weight: 600; margin-bottom: 4px; }
   #videoTitle { font-family: 'Amiri', serif; font-size: 18px; color: var(--text-main); font-weight: 700; line-height: 1.4; }
   .player-frame { width: 100%; aspect-ratio: 16/9; }
-  .player-frame iframe { width: 100%; height: 100%; border: none; display: block; }
-
-  /* ══ أيقونة المؤقت الثابتة ══ */
-  .timer-fab {
-    position: fixed;
-    bottom: 28px;
-    right: 24px;
-    z-index: 9999;
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    background: rgba(13,15,20,0.9);
-    border: 1px solid rgba(201,168,76,0.35);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    transition: all 0.3s;
-  }
-  .timer-fab:hover {
-    border-color: var(--gold);
-    transform: scale(1.1);
-    box-shadow: 0 6px 24px rgba(201,168,76,0.25);
-  }
-  .timer-fab.active {
-    border-color: var(--gold);
-    background: rgba(201,168,76,0.15);
-    animation: fabPulse 1.5s ease-in-out infinite;
-  }
-  .timer-fab svg { width: 24px; height: 24px; fill: var(--gold); }
-  .timer-fab-countdown {
-    position: absolute;
-    top: -8px; left: 50%; transform: translateX(-50%);
-    background: var(--gold);
-    color: var(--dark);
-    font-size: 9px; font-weight: 700;
-    font-family: monospace;
-    padding: 2px 5px;
-    border-radius: 8px;
-    white-space: nowrap;
-    display: none;
-  }
-  .timer-fab.active .timer-fab-countdown { display: block; }
-
-  @keyframes fabPulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
-    50%      { box-shadow: 0 0 0 8px rgba(201,168,76,0); }
-  }
 
   /* ══ لوحة المؤقت المنبثقة ══ */
   .timer-panel {
     position: fixed;
-    bottom: 90px;
-    right: 20px;
+    bottom: 90px; right: 20px;
     z-index: 9998;
     width: 270px;
     background: var(--dark2);
@@ -249,69 +287,51 @@
     padding: 20px;
     box-shadow: 0 16px 48px rgba(0,0,0,0.6);
     backdrop-filter: blur(12px);
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0; pointer-events: none;
     transform: translateY(10px) scale(0.95);
     transition: all 0.25s ease;
   }
-  .timer-panel.open {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateY(0) scale(1);
-  }
+  .timer-panel.open { opacity: 1; pointer-events: all; transform: translateY(0) scale(1); }
   .timer-panel-title {
     font-family: 'Cairo', sans-serif;
     font-size: 15px; font-weight: 700;
-    color: var(--gold);
-    text-align: center;
+    color: var(--gold); text-align: center;
     margin-bottom: 16px;
     display: flex; align-items: center; justify-content: center; gap: 7px;
   }
   .timer-display-big {
     font-family: monospace;
     font-size: 34px; font-weight: 700;
-    color: var(--gold-light);
-    text-align: center;
-    letter-spacing: 3px;
-    margin-bottom: 16px;
+    color: var(--gold-light); text-align: center;
+    letter-spacing: 3px; margin-bottom: 16px;
     text-shadow: 0 0 20px rgba(201,168,76,0.3);
   }
   .timer-inputs-row {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     margin-bottom: 14px;
   }
-  .timer-inputs-row .t-group {
-    display: flex; flex-direction: column; align-items: center; gap: 4px;
-  }
+  .timer-inputs-row .t-group { display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .timer-inputs-row label { font-size: 11px; color: var(--text-muted); }
   .timer-inputs-row input {
-    width: 64px;
-    background: rgba(201,168,76,0.08);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 10px;
-    padding: 8px;
-    color: var(--text-main);
-    font-size: 18px;
-    text-align: center;
-    font-family: monospace;
-    outline: none;
-    transition: border-color .2s;
+    width: 64px; background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2); border-radius: 10px;
+    padding: 8px; color: var(--text-main);
+    font-size: 18px; text-align: center;
+    font-family: monospace; outline: none; transition: border-color .2s;
   }
   .timer-inputs-row input:focus { border-color: var(--gold); }
   .timer-inputs-row .t-sep { font-size: 22px; color: var(--gold); padding-bottom: 16px; }
   .timer-btns-row { display: flex; gap: 8px; }
   .timer-btns-row button {
-    flex: 1; padding: 10px;
-    border-radius: 10px; border: none;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    font-size: 14px; font-weight: 700;
-    transition: all .2s;
+    flex: 1; padding: 10px; border-radius: 10px; border: none;
+    cursor: pointer; font-family: 'Cairo', sans-serif;
+    font-size: 14px; font-weight: 700; transition: all .2s;
   }
   .btn-start { background: var(--gold); color: var(--dark); }
   .btn-start:hover { background: var(--gold-light); }
   .btn-stop { background: rgba(255,80,80,0.12); color: #ff7070; border: 1px solid rgba(255,80,80,0.25); }
   .btn-stop:hover { background: rgba(255,80,80,0.22); }
+
   @keyframes timerPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
   /* ══ Section title ══ */
@@ -322,18 +342,15 @@
 
   /* ══ Cards ══ */
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
-
   .card {
-    background: var(--dark2);
-    border: 1px solid rgba(201,168,76,0.12);
+    background: var(--dark2); border: 1px solid rgba(201,168,76,0.12);
     border-radius: 14px; padding: 20px;
     cursor: pointer; transition: all 0.3s ease;
     position: relative; overflow: hidden;
     animation: fadeUp 0.4s ease both;
   }
   .card::before {
-    content: '';
-    position: absolute; top: 0; right: 0;
+    content: ''; position: absolute; top: 0; right: 0;
     width: 60px; height: 60px;
     background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent 70%);
     pointer-events: none;
@@ -356,157 +373,49 @@
   .card h3 { font-family: 'Amiri', serif; font-size: 16px; color: var(--text-main); font-weight: 700; line-height: 1.5; margin-bottom: 5px; }
   .card.active h3 { color: var(--gold-light); }
   .card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
   .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
   .empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
   .empty-state h3 { font-family: 'Amiri', serif; font-size: 20px; color: var(--gold); margin-bottom: 10px; }
 
-  /* ══ Footer مع السوشيال والاسم ══ */
-  footer {
-    position: relative; z-index: 1;
-    padding: 40px 20px 30px;
-    border-top: 1px solid rgba(201,168,76,0.12);
-  }
-  .footer-inner {
-    max-width: 1280px; margin: auto;
-    display: flex; flex-direction: column; align-items: center; gap: 24px;
-  }
+  /* ══ Footer ══ */
+  footer { position: relative; z-index: 1; padding: 40px 20px 30px; border-top: 1px solid rgba(201,168,76,0.12); }
+  .footer-inner { max-width: 1280px; margin: auto; display: flex; flex-direction: column; align-items: center; gap: 24px; }
   .footer-dua { font-family: 'Amiri Quran', serif; font-size: 18px; color: var(--gold); text-align: center; text-shadow: 0 0 30px rgba(201,168,76,0.2); }
   .footer-sub { font-size: 13px; color: var(--text-muted); text-align: center; }
-
-  /* أيقونات السوشيال في الفوتر */
-  .footer-social {
-    display: flex; gap: 16px; align-items: center;
-  }
+  .footer-social { display: flex; gap: 16px; align-items: center; }
   .social-link {
     display: flex; align-items: center; gap: 8px;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 14px; font-weight: 700;
-    font-family: 'Cairo', sans-serif;
-    transition: all 0.3s;
+    text-decoration: none; padding: 10px 20px;
+    border-radius: 30px; font-size: 14px; font-weight: 700;
+    font-family: 'Cairo', sans-serif; transition: all 0.3s;
   }
   .social-link svg { width: 20px; height: 20px; flex-shrink: 0; }
-  .social-link.facebook {
-    background: rgba(24,119,242,0.15);
-    border: 1px solid rgba(24,119,242,0.35);
-    color: #60a5fa;
-  }
-  .social-link.facebook:hover {
-    background: rgba(24,119,242,0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(24,119,242,0.3);
-  }
-  .social-link.whatsapp {
-    background: rgba(37,211,102,0.12);
-    border: 1px solid rgba(37,211,102,0.3);
-    color: #4ade80;
-  }
-  .social-link.whatsapp:hover {
-    background: rgba(37,211,102,0.22);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37,211,102,0.25);
-  }
+  .social-link.facebook { background: rgba(24,119,242,0.15); border: 1px solid rgba(24,119,242,0.35); color: #60a5fa; }
+  .social-link.facebook:hover { background: rgba(24,119,242,0.25); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(24,119,242,0.3); }
+  .social-link.whatsapp { background: rgba(37,211,102,0.12); border: 1px solid rgba(37,211,102,0.3); color: #4ade80; }
+  .social-link.whatsapp:hover { background: rgba(37,211,102,0.22); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.25); }
+  .footer-brand { width: 100%; text-align: left; font-family: 'Reem Kufi', serif; font-size: 12px; color: rgba(201,168,76,0.5); padding-top: 10px; border-top: 1px solid rgba(201,168,76,0.06); }
 
- /* اسم أسفل الفوتر يسار */
-.footer-brand {
-  width: 100%;
-  text-align: left;
-  font-family: 'Reem Kufi', serif;
-  font-size: 12px;
-  color: rgba(201,168,76,0.5);
-  padding-top: 10px;
-  border-top: 1px solid rgba(201,168,76,0.06);
-}
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 24px 16px 40px; }
+    .sheikh-tab { padding: 14px 16px; font-size: 13px; }
+    .footer-social { flex-direction: column; gap: 10px; }
+    .timer-panel { width: calc(100vw - 20px); right: 10px; left: 10px; max-width: none; bottom: 130px; }
+    .timer-inputs-row { flex-wrap: wrap; }
+    .timer-btns-row { flex-direction: column; }
+    .timer-inputs-row input { width: 55px; }
+    .fab-group { bottom: 20px; right: 16px; gap: 10px; }
+    .fab-btn { width: 46px; height: 46px; }
+    .fab-btn .fab-tooltip { display: none; }
   }
-
-  .container {
-    padding: 24px 16px 40px;
-  }
-
-  .sheikh-tab {
-    padding: 14px 16px;
-    font-size: 13px;
-  }
-
-  .timer-bar {
-    flex-wrap: wrap;
-  }
-
-  .footer-social {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* تحسين نافذة مؤقت النوم للموبايل */
-  .timer-panel {
-    width: calc(100vw - 20px);
-    right: 10px;
-    left: 10px;
-    max-width: none;
-    bottom: 80px;
-  }
-
-  .timer-inputs-row {
-    flex-wrap: wrap;
-  }
-
-  .timer-btns-row {
-    flex-direction: column;
-  }
-
-  .timer-inputs-row input {
-    width: 55px;
-  }
-}
-
-@media (max-width: 420px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-    @media (max-width: 640px) {
-
-  .player-timer-bar{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:8px;
-    padding:10px;
-  }
-
-  .player-timer-bar input{
-    width:50px;
-  }
-
-  .player-timer-bar .pt-display{
-    width:100%;
-    order:99;
-    text-align:center;
-  }
-
-  .player-timer-bar .pt-start,
-  .player-timer-bar .pt-stop{
-    flex:1;
-    min-width:80px;
-  }
-
-}
+  @media (max-width: 420px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- اسم ثابت أسفل يسار -->
 <div class="brand-fixed">مصطفى جيمي</div>
 
 <header>
@@ -524,7 +433,6 @@
 
 <div class="container">
 
-  <!-- Player مخفي بالأساس -->
   <div class="player-section" id="playerSection">
     <div class="player-header">
       <div class="player-icon">
@@ -538,10 +446,9 @@
     <div class="player-frame">
       <div id="ytPlayer"></div>
     </div>
-    <!-- شريط المؤقت الصغير تحت الفيديو -->
     <div class="player-timer-bar" id="playerTimerBar">
-      <span class="pt-icon" onclick="toggleTimerPanel()" title="مؤقت النوم">⏰</span>
-      <span style="font-size:12px;color:var(--text-muted);font-family:'Cairo',sans-serif;">مؤقت النوم</span>
+      <span class="pt-icon">⏰</span>
+      <span class="pt-label">مؤقت النوم</span>
       <input type="number" id="timerHours2" min="0" max="23" value="0" placeholder="س">
       <span class="pt-sep">:</span>
       <input type="number" id="timerMins2" min="0" max="59" value="30" placeholder="د">
@@ -551,10 +458,28 @@
     </div>
   </div>
 
-  <!-- أيقونة المؤقت الثابتة -->
-  <div class="timer-fab" id="timerFab" onclick="toggleTimerPanel()">
-    <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9a8.985 8.985 0 00-2.97-6.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-    <div class="timer-fab-countdown" id="timerFabCountdown">--:--</div>
+  <!-- ══ مجموعة الأيقونات الثابتة ══ -->
+  <div class="fab-group">
+
+    <!-- أيقونة مصحف الملك فهد -->
+    <a class="fab-btn fab-mushaf"
+       href="https://quran.ksu.edu.sa/index.php#aya=1_1&m=hafs&qaree=husary&trans=ar_mu"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="مصحف الملك فهد">
+      <div class="fab-tooltip">مصحف الملك فهد</div>
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 14H7v-2h10v2zm0-4H7v-2h10v2zm0-4H7V6h10v2z"/>
+      </svg>
+    </a>
+
+    <!-- أيقونة المؤقت -->
+    <div class="fab-btn timer-fab" id="timerFab" onclick="toggleTimerPanel()">
+      <div class="fab-tooltip">مؤقت النوم</div>
+      <div class="timer-fab-countdown" id="timerFabCountdown">--:--</div>
+      <svg viewBox="0 0 24 24"><path d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0012 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9a8.985 8.985 0 00-2.97-6.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+    </div>
+
   </div>
 
   <!-- لوحة المؤقت المنبثقة -->
@@ -578,7 +503,6 @@
     </div>
   </div>
 
-  <!-- عنوان القسم -->
   <div class="section-title">
     <h2 id="sectionName">قائمة التلاوات</h2>
     <div class="section-title-line"></div>
@@ -588,34 +512,25 @@
   <div class="grid" id="cardGrid"></div>
 </div>
 
-<!-- Footer -->
 <footer>
   <div class="footer-inner">
     <div class="footer-dua">اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا وَنُورَ صُدُورِنَا</div>
     <div class="footer-sub">جمعها بمحبة للقرآن الكريم وأهله 🤍</div>
-
-    <!-- أيقونات السوشيال -->
     <div class="footer-social">
-      <!-- ⬇️ غيّر الرابط لرابط فيسبوكك -->
       <a class="social-link facebook" href="https://www.facebook.com/gemy5551" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         فيسبوك
       </a>
-      <!-- ⬇️ غيّر الرقم لرقمك — مثال: 201012345678 -->
       <a class="social-link whatsapp" href="https://wa.me/20236751961" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         واتساب
       </a>
     </div>
-
-    <div class="footer-brand"></div>
+    <div class="footer-brand">مصطفى جيمي</div>
   </div>
 </footer>
 
 <script>
-// =====================================================
-//  📌 البيانات — أضف فيديوهاتك هنا
-// =====================================================
 const sheikhData = [
   {
     name: 'الشيخ ياسر الدوسري',
@@ -665,7 +580,7 @@ const sheikhData = [
       { id: 'kT7C6BLs0FM', title: 'يا قومنا أجيبوا داعي الله', desc: 'مبكية ومؤثرة' },
       { id: 'F-8nrxMIyYI', title: 'ربنا إنك تعلم ما نخفي وما نعلن', desc: 'ترتيل خاشع ومبكي' },
       { id: 'VcLQx2VfQCg', title: 'سورة الحاقة', desc: 'خذوه فغلوه ثم الجحيم صلوه' },
-      { id: 'erR3RicNiRQ', title: 'قال إني عبدالله آتاني الكتاب', desc: 'فروض ١٤٣١ للشيخ ياسر الدوسريه' },
+      { id: 'erR3RicNiRQ', title: 'قال إني عبدالله آتاني الكتاب', desc: 'فروض ١٤٣١ للشيخ ياسر الدوسري' },
     ]
   },
   {
@@ -695,7 +610,6 @@ const sheikhData = [
   },
 ];
 
-// =====================================================
 const arabicNums = ['٠١','٠٢','٠٣','٠٤','٠٥','٠٦','٠٧','٠٨','٠٩','١٠','١١','١٢','١٣','١٤','١٥','١٦','١٧','١٨','١٩','٢٠','٢١','٢٢','٢٣','٢٤','٢٥','٢٦','٢٧','٢٨','٢٩','٣٠','٣١','٣٢','٣٣','٣٤','٣٥','٣٦','٣٧','٣٨','٣٩','٤٠','٤١','٤٢','٤٣','٤٤','٤٥','٤٦','٤٧','٤٨','٤٩','٥٠'];
 
 let currentSheikh = 0;
@@ -703,51 +617,26 @@ let currentVideoIdx = -1;
 let timerInterval = null;
 let timerSeconds = 0;
 let timerActive = false;
-
-// ══ YouTube IFrame API ══
+let lastTick = null;
 let ytPlayer = null;
-let ytReady = false;
 
-// تحميل YouTube IFrame API
 var tag = document.createElement('script');
 tag.src = 'https://www.youtube.com/iframe_api';
 document.head.appendChild(tag);
 
-// يتم استدعاؤها تلقائياً لما الـ API تتحمل
 function onYouTubeIframeAPIReady() {
-  ytReady = true;
   ytPlayer = new YT.Player('ytPlayer', {
-    height: '100%',
-    width: '100%',
-    videoId: '',
-    playerVars: {
-      autoplay: 0,
-      rel: 0,
-      modestbranding: 1,
-      playsinline: 1,   // مهم على الموبايل
-    },
+    height: '100%', width: '100%', videoId: '',
+    playerVars: { autoplay: 0, rel: 0, modestbranding: 1, playsinline: 1 },
     events: {
-      onStateChange: onPlayerStateChange,
-      onReady: function(e) { ytReady = true; }
+      onReady: function() {},
+      onStateChange: function(event) {
+        if (event.data === YT.PlayerState.ENDED) playNext();
+      }
     }
   });
 }
 
-function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.ENDED) {
-    playNext();
-  }
-}
-
-function playNext() {
-  const sheikh = sheikhData[currentSheikh];
-  const nextIdx = currentVideoIdx + 1;
-  if (nextIdx < sheikh.videos.length) {
-    setTimeout(() => playByIdx(nextIdx), 1200);
-  }
-}
-
-// ── Tabs ──
 function buildTabs() {
   const tabsEl = document.getElementById('sheikhTabs');
   sheikhData.forEach((s, i) => {
@@ -760,8 +649,7 @@ function buildTabs() {
 }
 
 function selectSheikh(idx) {
-  currentSheikh = idx;
-  currentVideoIdx = -1;
+  currentSheikh = idx; currentVideoIdx = -1;
   document.querySelectorAll('.sheikh-tab').forEach((t, i) => t.classList.toggle('active', i === idx));
   document.getElementById('playerSection').classList.remove('visible');
   if (ytPlayer && ytPlayer.stopVideo) ytPlayer.stopVideo();
@@ -774,22 +662,18 @@ function renderCards(idx) {
   const sheikh = sheikhData[idx];
   const grid = document.getElementById('cardGrid');
   document.getElementById('sectionName').textContent = sheikh.name;
-
   if (!sheikh.videos.length) {
     document.getElementById('sectionCount').textContent = 'لا يوجد فيديوهات بعد';
     grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📖</div><h3>لم تُضف تلاوات بعد</h3></div>`;
     return;
   }
-
   const count = sheikh.videos.length;
   document.getElementById('sectionCount').textContent = (arabicNums[count - 1] || count) + ' تلاوة';
   grid.innerHTML = '';
-
   sheikh.videos.forEach((v, i) => {
     const card = document.createElement('div');
     card.className = 'card';
     card.style.animationDelay = (i * 0.04) + 's';
-    card.dataset.idx = i;
     card.innerHTML = `
       <div class="card-number">${arabicNums[i] || (i + 1)}</div>
       <div class="card-top">
@@ -804,22 +688,13 @@ function renderCards(idx) {
 function playByIdx(idx) {
   const sheikh = sheikhData[currentSheikh];
   if (idx < 0 || idx >= sheikh.videos.length) return;
-
   const v = sheikh.videos[idx];
   currentVideoIdx = idx;
-
-  // إظهار المشغل
   document.getElementById('playerSection').classList.add('visible');
-
-  // تحديث الكارت
   document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
   const cards = document.querySelectorAll('.card');
   if (cards[idx]) cards[idx].classList.add('active');
-
-  // تشغيل عبر YouTube API
-  if (ytPlayer && ytPlayer.loadVideoById) {
-    ytPlayer.loadVideoById(v.id);
-  }
+  if (ytPlayer && ytPlayer.loadVideoById) ytPlayer.loadVideoById(v.id);
   document.getElementById('videoTitle').textContent = v.title;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -832,11 +707,11 @@ function playNext() {
   }
 }
 
+// ══ المؤقت ══
 function toggleTimerPanel() {
   document.getElementById('timerPanel').classList.toggle('open');
 }
 
-// أغلق اللوحة لو ضغط برا
 document.addEventListener('click', function(e) {
   const panel = document.getElementById('timerPanel');
   const fab = document.getElementById('timerFab');
@@ -845,41 +720,43 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// تفعيل من الشريط الصغير تحت الفيديو
 function startTimerInline() {
   const h = parseInt(document.getElementById('timerHours2').value) || 0;
   const m = parseInt(document.getElementById('timerMins2').value) || 0;
-  // نحط القيم في اللوحة الكبيرة وننفذ
   document.getElementById('timerHours').value = h;
   document.getElementById('timerMins').value = m;
   startTimer();
 }
 
-// ── المؤقت ──
 function startTimer() {
   const h = parseInt(document.getElementById('timerHours').value) || 0;
   const m = parseInt(document.getElementById('timerMins').value) || 0;
   const total = (h * 3600) + (m * 60);
   if (total <= 0) return;
-
   stopTimer();
   timerSeconds = total;
   timerActive = true;
+  lastTick = Date.now();
   document.getElementById('timerFab').classList.add('active');
   document.getElementById('timerPanel').classList.remove('open');
   document.getElementById('playerTimerBar').classList.add('counting');
   updateTimerDisplay();
 
   timerInterval = setInterval(() => {
-    timerSeconds--;
+    const now = Date.now();
+    const elapsed = Math.round((now - lastTick) / 1000);
+    lastTick = now;
+    timerSeconds = Math.max(0, timerSeconds - elapsed);
     updateTimerDisplay();
     if (timerSeconds <= 0) {
-      stopTimer();
       timerActive = false;
+      clearInterval(timerInterval); timerInterval = null;
       if (ytPlayer && ytPlayer.stopVideo) ytPlayer.stopVideo();
       document.getElementById('videoTitle').textContent = 'انتهى المؤقت 🌙';
+      document.getElementById('timerFab').classList.remove('active');
+      document.getElementById('playerTimerBar').classList.remove('counting');
       document.getElementById('timerDisplay').textContent = '00:00';
-      document.getElementById('ptDisplay').textContent = '✓';
+      document.getElementById('ptDisplay').textContent = '✓ انتهى';
       document.getElementById('timerFabCountdown').textContent = '✓';
       document.getElementById('playerSection').classList.remove('visible');
     }
@@ -888,8 +765,7 @@ function startTimer() {
 
 function stopTimer() {
   if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-  timerActive = false;
-  timerSeconds = 0;
+  timerActive = false; timerSeconds = 0;
   document.getElementById('timerFab').classList.remove('active');
   document.getElementById('playerTimerBar').classList.remove('counting');
   document.getElementById('timerDisplay').textContent = '00:00';
@@ -910,7 +786,38 @@ function updateTimerDisplay() {
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
-// ── Init ──
+// ══ Wake Lock ══
+let wakeLock = null;
+async function requestWakeLock() {
+  if ('wakeLock' in navigator) {
+    try { wakeLock = await navigator.wakeLock.request('screen'); } catch(e) {}
+  }
+}
+document.addEventListener('visibilitychange', async () => {
+  if (document.visibilityState === 'visible' && !wakeLock) requestWakeLock();
+});
+
+// ══ صوت صامت للخلفية ══
+let silentCtx = null;
+function startSilentAudio() {
+  if (silentCtx) return;
+  try {
+    silentCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = silentCtx.createOscillator();
+    const gain = silentCtx.createGain();
+    gain.gain.value = 0.00001;
+    osc.connect(gain);
+    gain.connect(silentCtx.destination);
+    osc.start();
+  } catch(e) {}
+}
+
+document.addEventListener('click', function init() {
+  requestWakeLock();
+  startSilentAudio();
+  document.removeEventListener('click', init);
+}, { once: true });
+
 buildTabs();
 renderCards(0);
 </script>
